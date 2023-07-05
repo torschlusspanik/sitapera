@@ -26,8 +26,7 @@
                     <label>PILIH KATEGORI</label>
                            <select class="form-control form-control-sm" name="kategori_id" required>
                                <?php foreach ($kategori as $kategori1) : ?>
-                                <option value="" selected disabled hidden>- Pilih -</option>
-                                   <option value="<?php echo $kategori1['id_kategori']; ?>"><?php echo $kategori1['nama_kategori']; ?></option>
+                                   <option value="<?php echo $kategori1['id_kategori']; ?>"><?php echo $kategori1['nama_kategori']; ?></option  required>
                                <?php endforeach; ?>
                            </select>
                     </div>
@@ -48,7 +47,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                     <label>Keterangan (Opsional)</label>
-                         <textarea class="form-control" name="keterangan_permintaan" rows="3"  ></textarea>
+                         <textarea class="form-control" name="urgas" rows="3"  ></textarea>
                 </div>
                 </div>
 

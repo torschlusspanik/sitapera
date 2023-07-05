@@ -29,10 +29,8 @@
                                            <td><?php echo $lu['nama_kategori']; ?></td>
                                            <td><?php echo $lu['nama_unit']; ?></td>
                                            <td><button class="btn btn-warning btn-sm btn-block text-dark">PENGAJUAN</button></td>
-                                           <td>
-                                            <a href="<?php echo base_url('admin/info_dokumen/' . $lu['id_db_dokumen']); ?>" class="tombol-edit btn btn-info "><i class="fas fa-edit"></i></a>
-                                            <a href="<?php echo base_url('admin/print/' . $lu['id_db_dokumen']); ?>" class="tombol-edit btn btn-info"><i class="fas fa-print"></i></a>
-                                           </td>
+                                            <td>
+                                            <a href="<?php echo base_url('admin/info_permintaan/' . $lu['id_db_permintaan']); ?>" class="tombol-edit btn btn-info "><i class="fas fa-edit"></i></a>
                                            
                                            <?php elseif ($lu['status_db_permintaan'] == 2) : ?>
                                            <td><?php echo $i++; ?></td>
@@ -41,8 +39,7 @@
                                            <td><?php echo $lu['nama_unit']; ?></td>
                                            <td class="text-center text-info font-weight-bolder">PROSES</td>
                                            <td>
-                                            <a href="<?php echo base_url('admin/info_dokumen/' . $lu['id_db_dokumen']); ?>" class="tombol-edit btn btn-info "><i class="fas fa-edit"></i></a>
-                                            <a href="<?php echo base_url('admin/print/' . $lu['id_db_dokumen']); ?>" class="tombol-edit btn btn-info "><i class="fas fa-print"></i></a>
+                                           <a href="<?php echo base_url('admin/info_permintaan/' . $lu['id_db_permintaan']); ?>" class="tombol-edit btn btn-info "><i class="fas fa-edit"></i></a>
                                           </td>
                                            
                                            <?php else : ?>

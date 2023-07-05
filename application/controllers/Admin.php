@@ -23,12 +23,11 @@ class Admin extends CI_Controller
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Beranda';
             $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
-            $data['user_perbulan'] = $this->admin->countUserPerbulan();
-            $data['count_user'] = $this->admin->countJmlUser();
-            $data['user_aktif'] = $this->admin->countUserAktif();
-            $data['user_tak_aktif'] = $this->admin->countUserTakAktif();
+            $data['count_diproses'] = $this->admin->countPermintaanProses();
+            $data['count_permintaan'] = $this->admin->countJmlPermintaan();
+            $data['count_selesai'] = $this->admin->countPermintaanSelesai();
             $data['list_user'] = $this->db->get('user_login')->result_array();
-            $data['notif_Dokumen'] = $this->admin->notifDokumen();
+            $data['notif_Permintaan'] = $this->admin->notifPermintaan();
            
 
             $this->load->view('templates/header', $data);
@@ -392,18 +391,7 @@ class Admin extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function info_dokumen($id_db_dokumen)
-    {
-        $data['title'] = 'Detail Pengajuan Dokumen';
-        $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
-        $data['detail'] = $this->admin->getInfoDokumen($id_db_dokumen);
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar_admin', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('admin/data/info_dokumen', $data);
-        $this->load->view('templates/footer');
-    }
 
     public function info_history($id_db_dokumen)
     {
@@ -454,20 +442,7 @@ class Admin extends CI_Controller
         force_download('./assets/files/' . $data['dokumen']['lampiran4'], NULL);
     }
 
-    public function ubah_status_dokumen()
-    {
-        $id_db_dokumen = $this->input->post('id_db_dokumen');
-        $tgl_respon = date('Y/m/d');
-        $status_db_dokumen = $this->input->post('status_db_dokumen');
-
-        $this->db->set('tgl_respon', $tgl_respon);
-        $this->db->set('status_db_dokumen', $status_db_dokumen);
-
-        $this->db->where('id_db_dokumen', $id_db_dokumen);
-        $this->db->update('db_dokumen');
-        $this->session->set_flashdata('message', 'Simpan Perubahan');
-        redirect('admin/info_dokumen/' . $id_db_dokumen);
-    }
+   
 
     public function upload_dokumen($id_db_dokumen)
     {
@@ -517,14 +492,26 @@ class Admin extends CI_Controller
 
     public function history_dokumen()
     {
-        $data['title'] = 'History dokumen';
+        $data['title'] = 'History Permintaan';
         $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
-        $data['dokumen'] = $this->admin->getDokumenMasukReport();
+        $data['history'] = $this->admin->getPermintaanMasukReport();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar_admin', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('admin/data/history_dokumen', $data);
+        $this->load->view('admin/data/history_permintaan', $data);
+        $this->load->view('templates/footer');
+    }
+    public function history_permintaan()
+    {
+        $data['title'] = 'History Permintaan';
+        $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
+        $data['history'] = $this->admin->getPermintaanMasukReport();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_admin', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/data/history_permintaan', $data);
         $this->load->view('templates/footer');
     }
 
@@ -902,6 +889,132 @@ class Admin extends CI_Controller
         $this->load->view('templates/topbar', $data);
         $this->load->view('admin/data/dokumen', $data);
         $this->load->view('templates/footer');
+    }
+    public function info_permintaan($id_db_permintaan)
+    {
+        $data['title'] = 'Detail Penanganan Permintaan';
+        $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
+        $data['detail'] = $this->admin->getInfoPermintaan($id_db_permintaan);
+        $data['petugas'] = $this->db->get_where('petugas', ['status_petugas' => 1])->result_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_admin', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/data/info_permintaan', $data);
+        $this->load->view('templates/footer');
+    }
+    public function info_dokumen($id_db_dokumen)
+    {
+        $data['title'] = 'Detail Pengajuan Dokumen';
+        $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
+        $data['detail'] = $this->admin->getInfoDokumen($id_db_dokumen);
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_admin', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/data/info_dokumen', $data);
+        $this->load->view('templates/footer');
+    }
+    public function ubah_status_dokumen()
+    {
+        $id_db_dokumen = $this->input->post('id_db_dokumen');
+        $status_db_dokumen = '2';
+
+        $this->db->set('status_db_dokumen', $status_db_dokumen);
+
+        $this->db->where('id_db_dokumen', $id_db_dokumen);
+        $this->db->update('db_dokumen');
+        $this->session->set_flashdata('message', 'Simpan Perubahan');
+        redirect('admin/info_dokumen/' . $id_db_dokumen);
+    }
+    public function ubah_status_permintaan()
+    {
+        $id_db_permintaan = $this->input->post('id_db_permintaan');
+        $status_db_permintaan = '2';
+        $petugas = $this->input->post('petugas_id');
+
+        $this->db->set('petugas_id', $petugas);
+        $this->db->set('status_db_permintaan', $status_db_permintaan);
+
+        $this->db->where('id_db_permintaan', $id_db_permintaan);
+        $this->db->update('db_permintaan');
+        $this->session->set_flashdata('message', 'Simpan Perubahan');
+        redirect('admin/info_permintaan/' . $id_db_permintaan);
+    }
+    public function ubah_proses()
+    {
+        $id_db_permintaan = $this->input->post('id_db_permintaan');
+        $status_db_permintaan = '2';
+        $petugas = $this->input->post('petugas_id');
+
+        $this->db->set('petugas_id', $petugas);
+        $this->db->set('status_db_permintaan', $status_db_permintaan);
+
+        $this->db->where('id_db_permintaan', $id_db_permintaan);
+        $this->db->update('db_permintaan');
+        $this->session->set_flashdata('message', 'Simpan Perubahan');
+        redirect('admin/info_permintaan/' . $id_db_permintaan);
+    }
+    public function ubah_selesai()
+    {
+        $id_db_permintaan = $this->input->post('id_db_permintaan');
+        $tgl_selesai = date('Y/m/d');
+        $jam_selesai = date('H:i:s');
+        $status_db_permintaan = '5';
+
+        $this->db->set('tgl_selesai', $tgl_selesai);
+        $this->db->set('jam_selesai', $jam_selesai);
+        $this->db->set('status_db_permintaan', $status_db_permintaan);
+
+        $this->db->where('id_db_permintaan', $id_db_permintaan);
+        $this->db->update('db_permintaan');
+        $this->session->set_flashdata('message', 'Simpan Perubahan');
+        redirect('admin/info_permintaan/' . $id_db_permintaan);
+    }
+    public function upload_dokumen1($id_db_dokumen)
+    {
+
+        $this->form_validation->set_rules('db_dokumen_id', 'ID Dokumen', 'required|trim|is_unique[upload_dokumen.db_dokumen_id]', array(
+            'is_unique' => 'File Sudah Diunggah'
+        ));
+        if ($this->form_validation->run() == FALSE) {
+
+            $data['title'] = 'Detail Pengajuan Dokumen';
+            $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
+            $data['detail'] = $this->admin->getInfoDokumen($id_db_dokumen);
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar_admin', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('admin/data/info_dokumen', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $config['upload_path']   = './assets/files/';
+            $config['allowed_types'] = 'pdf';
+            $config['max_size']      = 2048;
+            $this->load->library('upload', $config);
+            $this->upload->do_upload('file_dokumen');
+            $file = $this->upload->data('file_name');
+
+            $id_db_dokumen = $this->input->post('db_dokumen_id');
+            $data = [
+                'db_dokumen_id' => $this->input->post('db_dokumen_id', true),
+                'tgl_upload' => date('Y/m/d'),
+                'no_dokumen_upload' => $this->input->post('no_dokumen_upload', true),
+                'file_dokumen' => $file
+            ];
+            $this->db->insert('upload_dokumen', $data);
+
+            $id_db_dokumen = $this->input->post('db_dokumen_id');
+            $status_db_dokumen = 0;
+
+            $this->db->set('status_db_dokumen', $status_db_dokumen);
+            $this->db->where('id_db_dokumen', $id_db_dokumen);
+            $this->db->update('db_dokumen');
+
+            $this->session->set_flashdata('message', 'Upload File');
+            redirect('admin/info_dokumen/' . $id_db_dokumen);
+        }
     }
 
 }

@@ -24,13 +24,12 @@
                                    <th>Tgl Permintaan</th>
                                    <th>Nama Permintaan</th>
                                    <th>Nama Unit</th>
-                                   <th>Tgl Permintaan</th>
+                                   <th>Tanggal Selesai</th>
                                    <th>Status</th>
-                                   <th>Opsi</th>
                                </thead>
                                <tbody>
                                    <?php $i = 1; ?>
-                                   <?php foreach ($permintaan as $lu) : ?>
+                                   <?php foreach ($history as $lu) : ?>
                                     <?php if ($lu['status_db_permintaan'] == 1) : ?>
                                         <?php else : ?>
                                        <tr>
@@ -38,10 +37,10 @@
                                            <td><?php echo format_indo($lu['tgl_permintaan']); ?></td>
                                            <td><?php echo $lu['nama_kategori']; ?></td>
                                            <td><?php echo $lu['nama_unit']; ?></td>
-                                           <?php if ($lu['tgl_respon'] == 0) : ?>
+                                           <?php if ($lu['tgl_selesai'] == "0000-00-00") : ?>
                                             <td><?php echo "Belum / Proses"; ?></td>
                                             <?php else : ?>  
-                                           <td><?php echo format_indo ($lu['tgl_respon']); ?></td>
+                                           <td><?php echo format_indo ($lu['tgl_selesai']); ?></td>
                                            <?php endif; ?>
                                                <?php if ($lu['status_db_permintaan'] == 2) : ?>
                                                <td>Proses</td>
@@ -50,7 +49,6 @@
                                            <?php else : ?>
                                                <td>Selesai</td>
                                            <?php endif; ?>
-                                           <td><a href="<?php echo base_url('admin/info_history/' . $lu['id_db_permintaan']); ?>" class="tombol-edit btn btn-info btn-block btn-sm"><i class="fas fa-edit"></i></a></td>
                                        </tr>
                                        <?php endif; ?>
                                    <?php endforeach; ?>

@@ -12,6 +12,17 @@ class User_model extends CI_model
                   ";
         return $this->db->query($query)->result_array();
     }
+    public function getPermintaan($user_id)
+    {
+        $query = "SELECT *
+                  FROM db_permintaan JOIN kategori
+                  ON db_permintaan.kategori_id = kategori.id_kategori
+
+                  WHERE db_permintaan.sess_id = '$user_id'
+                  ORDER BY id_db_permintaan DESC
+                  ";
+        return $this->db->query($query)->result_array();
+    }
     public function getUnit($user_id)
     {
         $query = "SELECT *
@@ -28,6 +39,20 @@ class User_model extends CI_model
                   LEFT JOIN dokumen
                   ON dokumen.id_dokumen = db_dokumen.dokumen_id
                   WHERE db_dokumen.id_db_dokumen = $id_db_dokumen
+                  ";
+        return $this->db->query($query)->row_array();
+    }
+    public function getInfoPermintaan($id_db_permintaan)
+    {
+        $query = "SELECT *
+                  FROM db_permintaan
+                  LEFT JOIN kategori
+                  ON kategori.id_kategori = db_permintaan.kategori_id
+                  LEFT JOIN unit_kerja
+                  ON unit_kerja.id_unit = db_permintaan.unit_kerja_id
+                  LEFT JOIN petugas
+                  ON petugas.id_petugas = db_permintaan.petugas_id
+                  WHERE db_permintaan.id_db_permintaan = $id_db_permintaan
                   ";
         return $this->db->query($query)->row_array();
     }

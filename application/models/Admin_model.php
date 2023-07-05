@@ -8,30 +8,44 @@ class Admin_model extends CI_model
     {
         return $this->db->get($table);
     }
-    public function countJmlUser()
+    public function countJmlPermintaan()
     {
 
         $query = $this->db->query(
-            "SELECT COUNT(id_user) as jml_pegawai
-                               FROM user_login"
+            "SELECT COUNT(id_db_permintaan) as jml_permintaan
+                               FROM db_permintaan"
         );
         if ($query->num_rows() > 0) {
-            return $query->row()->jml_pegawai;
+            return $query->row()->jml_permintaan;
         } else {
             return 0;
         }
     }
 
-    public function countUserAktif()
+    public function countPermintaanProses()
     {
 
         $query = $this->db->query(
-            "SELECT COUNT(id_user) as user_aktif
-                               FROM user_login
-                               WHERE is_active = 1"
+            "SELECT COUNT(id_db_permintaan) as jml_proses
+                               FROM db_permintaan
+                               WHERE status_db_permintaan = 2"
         );
         if ($query->num_rows() > 0) {
-            return $query->row()->user_aktif;
+            return $query->row()->jml_proses;
+        } else {
+            return 0;
+        }
+    }
+    public function countPermintaanSelesai()
+    {
+
+        $query = $this->db->query(
+            "SELECT COUNT(id_db_permintaan) as jml_selesai
+                               FROM db_permintaan
+                               WHERE status_db_permintaan = 5"
+        );
+        if ($query->num_rows() > 0) {
+            return $query->row()->jml_selesai;
         } else {
             return 0;
         }
@@ -67,15 +81,15 @@ class Admin_model extends CI_model
         }
     }
 
-    public function notifDokumen()
+    public function notifPermintaan()
     {
         $query = $this->db->query(
-            "SELECT COUNT(id_db_dokumen) as jml_dokumen
-                               FROM db_dokumen
-                               WHERE status_db_dokumen = 1"
+            "SELECT COUNT(id_db_permintaan) as jml_notif
+                               FROM db_permintaan
+                               WHERE status_db_permintaan = 1"
         );
         if ($query->num_rows() > 0) {
-            return $query->row()->jml_dokumen;
+            return $query->row()->jml_notif;
         } else {
             return 0;
         }
@@ -99,6 +113,7 @@ class Admin_model extends CI_model
                   ";
         return $this->db->query($query)->result_array();
     }
+    
     public function getInfoDokumen($id_db_dokumen)
     {
         $query = "SELECT *
@@ -122,6 +137,19 @@ class Admin_model extends CI_model
                   ON upload_dokumen.db_dokumen_id = db_dokumen.id_db_dokumen
                   ORDER BY id_dokumen DESC
                   ";
+        return $this->db->query($query)->result_array();
+    }
+    public function getPermintaanMasukReport()
+    {
+        $query = "SELECT *
+                  FROM db_permintaan
+                  LEFT JOIN kategori
+                  ON kategori.id_kategori = db_permintaan.kategori_id
+                  LEFT JOIN unit_kerja
+                  ON unit_kerja.id_unit = db_permintaan.unit_kerja_id
+                  ORDER BY tgl_permintaan DESC
+                  "
+                  ;
         return $this->db->query($query)->result_array();
     }
 
@@ -286,7 +314,7 @@ class Admin_model extends CI_model
                   ON kategori.id_kategori = db_permintaan.kategori_id
                   LEFT JOIN unit_kerja
                   ON unit_kerja.id_unit = db_permintaan.unit_kerja_id
-                  ORDER BY id_kategori DESC
+                  ORDER BY tgl_permintaan DESC
                   "
                   ;
         return $this->db->query($query)->result_array();
@@ -300,6 +328,29 @@ class Admin_model extends CI_model
                   ORDER BY id_dokumen DESC
                   ";
         return $this->db->query($query)->result_array();
+    }
+    public function getInfoPermintaan($id_db_permintaan)
+    {
+        $query = "SELECT *
+                  FROM db_permintaan
+                  LEFT JOIN kategori
+                  ON kategori.id_kategori = db_permintaan.kategori_id
+                  LEFT JOIN unit_kerja
+                  ON unit_kerja.id_unit = db_permintaan.unit_kerja_id
+                  LEFT JOIN petugas
+                  ON petugas.id_petugas = db_permintaan.petugas_id
+                  WHERE db_permintaan.id_db_permintaan = $id_db_permintaan
+                  ";
+        return $this->db->query($query)->row_array();
+    }
+    public function getPetugas($id_db_permintaan)
+    {
+            $query ="SELECT *
+                     FROM db_permintaan
+                     LEFT JOIN petugas
+                     ON petugas.id_petugas = db_permintaan.petugas_id
+                     WHERE db_permintaan.id_db_permintaan = $id_db_permintaan
+                     ";
     }
 
 }

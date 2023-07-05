@@ -2,7 +2,7 @@
    <div class="container-fluid">
        <div class="d-sm-flex align-items-center justify-content-between mb-4">
            <h2 class="h4 mb-0 text-gray-800"><?php echo $title; ?></h2>
-           <a href="<?php echo base_url('user/dokumen'); ?>" class="d-none d-sm-inline-block btn btn-sm btn-light shadow-sm">Kembali</a>
+           <a href="<?php echo base_url('user/permintaan_terkirim'); ?>" class="d-none d-sm-inline-block btn btn-sm btn-light shadow-sm">Kembali</a>
        </div>
        <div class="row">
            <div class="col-xl-12 col-lg-5">
@@ -11,42 +11,41 @@
                        <div class="row">
                            <div class="col-md-8">
                                <table>
-                                   <tr>
-                                       <td>Nama Dokumen</td>
-                                       <td> : </td>
-                                       <td><?php echo $detail['nama_dokumen']; ?></td>
+                               <tr>
+                                       <th>Nama kategori</th>
+                                       <th> : </th>
+                                       <th><?php echo $detail['nama_kategori']; ?></th>
                                    </tr>
                                    <tr>
-                                       <td>No Dokumen</td>
-                                       <td> : </td>
-                                       <td><?php echo $detail['no_dokumen']; ?></td>
+                                       <th>Tanggal permintaan</th>
+                                       <th> : </th>
+                                       <th><?php echo format_indo($detail['tgl_permintaan']); ?></th>
                                    </tr>
                                    <tr>
-                                       <td>Tgl Dokumen</td>
-                                       <td> : </td>
-                                       <td><?php echo $detail['tgl_dokumen']; ?></td>
+                                       <th>Jam permintaan</th>
+                                       <th> : </th>
+                                       <th><?php echo ($detail['jam_permintaan']); ?></th>
                                    </tr>
                                    <tr>
-                                       <td>Pembuat Dokumen</td>
-                                       <td> : </td>
-                                       <td><?php echo $detail['pembuat']; ?></td>
+                                       <th>Nama Unit</th>
+                                       <th> : </th>
+                                       <th><?php echo $detail['nama_unit']; ?></th>
                                    </tr>
                                    <tr>
-                                       <td>Keterangan</td>
-                                       <td> : </td>
-                                       <td><?php echo $detail['ket_db_dok']; ?></td>
+                                       <th>Nama Petugas</th>
+                                       <th> : </th>
+                                       <th><?php echo $detail['nama_petugas']; ?></th>
                                    </tr>
                                    <tr>
                                        <th>Status</th>
                                        <th> : </th>
-                                       <?php if ($detail['status_db_dokumen'] == 1) : ?>
-                                           <th class="text-danger">Waiting...</th>
-                                       <?php elseif ($detail['status_db_dokumen'] == 2) : ?>
-                                           <th class="text-danger">Proses...</th>
-                                           <?php elseif ($detail['status_db_dokumen'] == 3) : ?>
-                                           <th class="text-danger">Dokumen tidak lengkap!</th>
+                                       <?php if ($detail['status_db_permintaan'] == 1) : ?>
+                                           <th class="text-danger">Waiting...|
+                                           </th>
+                                       <?php elseif ($detail['status_db_permintaan'] == 2) : ?>
+                                           <th class="text-primary"><i class="fas fa-hourglass-start"></i> Proses </th>
                                        <?php else : ?>
-                                           <th>Selesai</th>
+                                           <th class="text-success"><i class="fas fa-check-square"></i> Selesai</th>
                                        <?php endif; ?>
                                    </tr>
                                </table>
@@ -61,11 +60,7 @@
                                            <th>KK</th>
                                            <th>Pengantar RT RW</th>
 
-                                            <?php if ($detail['lampiran2'] == "") : ?>
-                                            <td style="visibility:hidden;">
-                                            <?php else : ?>
-                                            <th>Lampiran</th>
-                                            <?php endif; ?>
+
 
                                              <?php if ($detail['lampiran3'] == "") : ?>
                                             <td style="visibility:hidden;">

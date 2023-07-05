@@ -27,13 +27,12 @@
 
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw far fa-envelope"></i>
-                    <span>Dokumen</span>
+                    <span>Daftar Permintaan</span>
                 </a>
                 <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?php echo base_url('user/dokumen'); ?>">Dokumen Diproses</a>
-                        <a class="collapse-item" href="<?php echo base_url('user/dokumen_selesai'); ?>">Dokumen Selesai</a>
-                        <a class="collapse-item" href="<?php echo base_url('user/dokumen_gagal'); ?>">Dokumen Gagal</a>
+                        <a class="collapse-item" href="<?php echo base_url('user/permintaan_terkirim'); ?>">Permintaan Terkirim</a>
+                        <a class="collapse-item" href="<?php echo base_url('user/permintaan_selesai'); ?>">Permintaan Selesai</a>
                     </div>
                 </div>
     </li>
@@ -42,46 +41,7 @@
             <i class="fas fa-fw fas fa-home"></i>
             <span>Permintaan</span></a>
     </li>
-    <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw far fa-clone"></i>
-                    <span>Pengajuan Surat Usaha</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?php echo base_url('user/skck'); ?>">SKCK</a>
-                        <a class="collapse-item" href="<?php echo base_url('user/skusaha'); ?>">Surat Keterangan Usaha</a>
-                        <a class="collapse-item" href="<?php echo base_url('user/dtu'); ?>">Domisili Tempat Usaha</a>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw far fa-clone"></i>
-                    <span>Pengajuan Surat Sipil</span>
-                </a>
-                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?php echo base_url('user/sktm'); ?>">SKTM</a>
-                        <a class="collapse-item" href="<?php echo base_url('user/pindah'); ?>">Pindah penduduk</a>
-                        <a class="collapse-item" href="<?php echo base_url('user/kelahiran'); ?>">Surat Kelahiran</a>
-                        <a class="collapse-item" href="<?php echo base_url('user/kematian'); ?>">Surat Kematian</a>
-                        <a class="collapse-item" href="<?php echo base_url('user/du'); ?>">Domisili Umum</a>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw far fa-clone"></i>
-                    <span>Pengajuan Kepemilikan</span>
-                </a>
-                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?php echo base_url('user/kendaraan'); ?>">Kepemilikan kendaraan</a>
-                    </div>
-                </div>
-            </li>
-     
+
 
     <hr class="sidebar-divider">
 

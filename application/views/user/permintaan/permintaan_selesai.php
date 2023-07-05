@@ -33,7 +33,7 @@
                                        <tr>
                                            <td><?php echo $i++; ?></td>
                                            <td><?php echo format_indo($lu['tgl_permintaan']); ?></td>
-                                           <td><?php echo $lu['nama_permintaan']; ?></td>
+                                           <td><?php echo $lu['nama_kategori']; ?></td>
                                            <td class="text-center text-success font-weight-bolder"><i class="far fa-check-circle fa-2x"></i></td>
 
                                            <?php else : ?>

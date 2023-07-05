@@ -8,32 +8,32 @@
      <!-- Content Row -->
      <div class="row">
          <!-- Earnings (Monthly) Card Example -->
-         <div class="col-xl-3 col-md-6 mb-4">
-             <div class="card border-left-primary shadow h-100 py-2">
-                 <div class="card-body">
-                     <div class="row no-gutters align-items-center">
-                         <div class="col mr-2">
-                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">User Register</div>
-                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $user_perbulan; ?></div>
-                         </div>
-                         <div class="col-auto">
-                             <i class="fas fa-user-plus fa-2x text-gray-300"></i>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
          <!-- Earnings (Monthly) Card Example -->
          <div class="col-xl-3 col-md-6 mb-4">
              <div class="card border-left-primary shadow h-100 py-2">
                  <div class="card-body">
                      <div class="row no-gutters align-items-center">
                          <div class="col mr-2">
-                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total User</div>
-                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $count_user; ?></div>
+                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Permintaan</div>
+                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $count_permintaan; ?></div>
                          </div>
                          <div class="col-auto">
-                             <i class="fas fa-users fa-2x text-gray-300"></i>
+                             <i class="fas fa-user-times fa-2x text-gray-300"></i>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     <div class="col-xl-3 col-md-6 mb-4">
+             <div class="card border-left-primary shadow h-100 py-2">
+                 <div class="card-body">
+                     <div class="row no-gutters align-items-center">
+                         <div class="col mr-2">
+                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Permintaan Diproses</div>
+                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $count_diproses; ?></div>
+                         </div>
+                         <div class="col-auto">
+                             <i class="fas fa-user-times fa-2x text-gray-300"></i>
                          </div>
                      </div>
                  </div>
@@ -44,23 +44,8 @@
                  <div class="card-body">
                      <div class="row no-gutters align-items-center">
                          <div class="col mr-2">
-                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">User Aktif</div>
-                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $user_aktif; ?></div>
-                         </div>
-                         <div class="col-auto">
-                             <i class="fas fa-user-check fa-2x text-gray-300"></i>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-         <div class="col-xl-3 col-md-6 mb-4">
-             <div class="card border-left-primary shadow h-100 py-2">
-                 <div class="card-body">
-                     <div class="row no-gutters align-items-center">
-                         <div class="col mr-2">
-                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">User Tidak Aktif</div>
-                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $user_tak_aktif; ?></div>
+                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Permintaan Selesai</div>
+                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $count_selesai; ?></div>
                          </div>
                          <div class="col-auto">
                              <i class="fas fa-user-times fa-2x text-gray-300"></i>
@@ -70,11 +55,11 @@
              </div>
          </div>
      </div>
-     <?php if ($notif_Dokumen == 0) : ?>
+     <?php if ($notif_Permintaan == 0) : ?>
      <?php else : ?>
          <div class="alert alert-warning" role="alert">
-             <strong><i class="fas fa-bell"></i> <span class="badge badge-light" style="font-size:20px;"> <?php echo $notif_Dokumen; ?></span>
-             </strong> Dokumen masuk, <a href="<?php echo base_url('admin/penanganan'); ?>">View</a>
+             <strong><i class="fas fa-bell"></i> <span class="badge badge-light" style="font-size:20px;"> <?php echo $notif_Permintaan; ?></span>
+             </strong> Permintaan masuk, <a href="<?php echo base_url('admin/penanganan'); ?>">View</a>
          </div>
      <?php endif; ?>
 

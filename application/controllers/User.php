@@ -838,16 +838,16 @@ class User extends CI_Controller
         $this->session->set_flashdata('message', 'Hapus data');
         redirect('user/dokumen');
     }
-    public function detail_dokumen($id_db_dokumen)
+    public function detail_permintaan($id_db_permintaan)
     {
-        $data['title'] = 'Detail Pengajuan Dokumen';
+        $data['title'] = 'Detail Pengajuan permintaan';
         $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
-        $data['detail'] = $this->user->getInfoDokumen($id_db_dokumen);
+        $data['detail'] = $this->user->getInfoPermintaan($id_db_permintaan);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar_user', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('user/detail_dokumen', $data);
+        $this->load->view('user/detail_permintaan', $data);
         $this->load->view('templates/footer');
     }
 
@@ -888,5 +888,40 @@ class User extends CI_Controller
             $this->session->set_flashdata('message', 'Tambah data');
             redirect('user/permintaan');
         }
+    }
+    public function permintaan_terkirim()
+    {
+        $this->form_validation->set_rules('tgl_permintaan', 'Tanggal Permintaan', 'required|trim');
+
+            $data['title'] = 'Daftar Pending Permintaan ';
+            $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
+            $data['list_kategori'] = $this->db->get_where('kategori', ['id_kategori'])->result_array();
+            $user_id = $this->session->userdata('id_user');
+            $data['permintaan_saya'] = $this->user->getPermintaan($user_id);
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar_user', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('user/permintaan/permintaan_terkirim', $data);
+            $this->load->view('templates/footer');
+        }
+        
+    public function permintaan_selesai()
+    {
+        $this->form_validation->set_rules('tgl_permintaan', 'Tanggal Permintaan', 'required|trim');
+
+       
+            $data['title'] = 'Daftar Pending Permintaan ';
+            $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
+            $data['list_kategori'] = $this->db->get_where('kategori', ['id_kategori'])->result_array();
+            $user_id = $this->session->userdata('id_user');
+            $data['permintaan_saya'] = $this->user->getPermintaan($user_id);
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar_user', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('user/permintaan/permintaan_selesai', $data);
+            $this->load->view('templates/footer');
+        
     }
 }
