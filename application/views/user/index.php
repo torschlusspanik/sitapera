@@ -60,7 +60,7 @@
              <div class="card shadow mb-4">
                  <!-- Card Header - Dropdown -->
                  <div class="card-header ">
-                     <h6 class="m-0 font-weight-bold text-primary">Dokumen Saya</h6>
+                     <h6 class="m-0 font-weight-bold text-primary">Permintaan Saya</h6>
                  </div>
                  <!-- Card Body -->
                  <div class="card-body">
@@ -69,23 +69,21 @@
                              <thead>
                                  <th>#</th>
                                  <th>Tgl</th>
-                                 <th>Jenis Dokumen</th>
-                                 <th>Pembuat</th>
+                                 <th>Jenis Permintaan</th>
                                  <th>Keterangan</th>
                                  <th>Status</th>
                              </thead>
                              <tbody>
                                  <?php $i = 1; ?>
-                                 <?php foreach ($dokumen_saya as $lu) : ?>
+                                 <?php foreach ($permintaan_saya as $lu) : ?>
                                      <tr>
                                          <td><?php echo $i++; ?></td>
-                                         <td><?php echo format_indo($lu['tgl_dokumen']); ?></td>
-                                         <td><?php echo $lu['nama_dokumen']; ?></td>
-                                         <td><?php echo $lu['pembuat']; ?></td>
-                                         <td><?php echo $lu['keterangan']; ?></td>
-                                         <?php if ($lu['status_db_dokumen'] == 1) : ?>
+                                         <td><?php echo format_indo($lu['tgl_permintaan']); ?></td>
+                                         <td><?php echo $lu['nama_kategori']; ?></td>
+                                         <td><?php echo $lu['urgas']; ?></td>
+                                         <?php if ($lu['status_db_permintaan'] == 1) : ?>
                                              <td class="text-center text-warning font-weight-bolder">PENDING</td>
-                                         <?php elseif ($lu['status_db_dokumen'] == 2) : ?>
+                                         <?php elseif ($lu['status_db_permintaan'] == 2) : ?>
                                              <td class="text-center text-info font-weight-bolder">PROSES</td>
                                          <?php else : ?>
                                              <td class="text-center text-success font-weight-bolder"><i class="far fa-check-circle fa-2x"></i></td>

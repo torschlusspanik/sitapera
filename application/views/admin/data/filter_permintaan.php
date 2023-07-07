@@ -18,41 +18,38 @@
                    </div>
                    <div class="card-body">
                        <div class="table-responsive">
-                           <table class="table table-bordered" id="table-id" style="font-size:13px;">
+                           <table class="table table-bordered" id="table-table">
                                <thead>
                                    <th>#</th>
-                                   <th>Tgl Permintaan</th>
-                                   <th>Nama Permintaan</th>
+                                   <th>Tgl Pengajuan</th>
+                                   <th>Nama permintaan</th>
                                    <th>Nama Unit</th>
-                                   <th>Tgl Permintaan</th>
+                                   <th>Tgl Selesai</th>
+                                   <th>Petugas</th>
                                    <th>Status</th>
-                                   <th>Opsi</th>
                                </thead>
                                <tbody>
                                    <?php $i = 1; ?>
-                                   <?php foreach ($permintaan as $lu) : ?>
-                                    <?php if ($lu['status_db_permintaan'] == 1) : ?>
-                                        <?php else : ?>
+                                   <?php foreach ($anjay as $lu) : ?>
                                        <tr>
                                            <td><?php echo $i++; ?></td>
                                            <td><?php echo format_indo($lu['tgl_permintaan']); ?></td>
                                            <td><?php echo $lu['nama_kategori']; ?></td>
                                            <td><?php echo $lu['nama_unit']; ?></td>
-                                           <?php if ($lu['tgl_respon'] == 0) : ?>
-                                            <td><?php echo "Belum / Proses"; ?></td>
-                                            <?php else : ?>  
-                                           <td><?php echo format_indo ($lu['tgl_respon']); ?></td>
-                                           <?php endif; ?>
-                                               <?php if ($lu['status_db_permintaan'] == 2) : ?>
+                                           <?php if ($lu['tgl_selesai'] == '0000-00-00') : ?>
+                                               <td>belum / Proses</td>
+                                           <?php else : ?>
+                                            <td><?php echo format_indo($lu['tgl_selesai']); ?></td>
+                                            <?php endif; ?>
+                                            <td><?php echo $lu['nama_petugas']; ?> </td>
+                                           <?php if ($lu['status_db_permintaan'] == 1) : ?>
+                                               <td>Waiting</td>
+                                           <?php elseif ($lu['status_db_permintaan'] == 2) : ?>
                                                <td>Proses</td>
-                                           <?php elseif ($lu['status_db_permintaan'] == 3) : ?>
-                                               <td>Tidak Lengkap</td>
                                            <?php else : ?>
                                                <td>Selesai</td>
                                            <?php endif; ?>
-                                           <td><a href="<?php echo base_url('admin/info_history/' . $lu['id_db_permintaan']); ?>" class="tombol-edit btn btn-info btn-block btn-sm"><i class="fas fa-edit"></i></a></td>
                                        </tr>
-                                       <?php endif; ?>
                                    <?php endforeach; ?>
                                </tbody>
                            </table>

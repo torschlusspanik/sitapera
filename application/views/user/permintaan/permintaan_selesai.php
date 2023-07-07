@@ -29,7 +29,7 @@
                                <tbody>
                                    <?php $i = 1; ?>
                                    <?php foreach ($permintaan_saya as $lu) : ?>
-                                    <?php if ($lu['status_db_permintaan'] == 0) : ?>
+                                    <?php if ($lu['status_db_permintaan'] == 5) : ?>
                                        <tr>
                                            <td><?php echo $i++; ?></td>
                                            <td><?php echo format_indo($lu['tgl_permintaan']); ?></td>
@@ -39,7 +39,7 @@
                                            <?php else : ?>
                                                
                                            <?php endif; ?>
-                                           <?php if ($lu['status_db_permintaan'] == 0) : ?>
+                                           <?php if ($lu['status_db_permintaan'] == 5) : ?>
                                             <td><a href="<?php echo base_url('user/detail_permintaan/' . $lu['id_db_permintaan']); ?>" class="btn btn-dark btn-sm btn-block">Detail</a></td>
                                            <?php endif; ?>
 

@@ -32,6 +32,36 @@
                                        <th><?php echo $detail['nama_unit']; ?></th>
                                    </tr>
                                    <tr>
+                                       <th>Nama Unit</th>
+                                       <th> : </th>
+                                       <th><?php echo $detail['nama_unit']; ?></th>
+                                   </tr>
+                                   <tr>
+                                   <?php if ($detail['urgas'] == "") : ?>
+                                            <td style="visibility:hidden;">
+                                            <?php else : ?>
+                                            <th>Uraian Tugas </th>
+                                            <th> : </th>
+                                            <th><?php echo $detail['urgas']; ?></th>
+                                            <?php endif; ?>
+                                            </tr>
+                                   <?php if ($detail['tgl_selesai'] == "0000-00-00") : ?>
+                                            <td style="visibility:hidden;">
+                                            <?php else : ?>
+                                            <th>Tanggal Selesai </th>
+                                            <th> : </th>
+                                            <th><?php echo format_indo($detail['tgl_selesai']); ?></th>
+                                            <?php endif; ?>
+                                            </tr>
+                                            <?php if ($detail['jam_selesai'] == "00:00:00") : ?>
+                                            <td style="visibility:hidden;">
+                                            <?php else : ?>
+                                            <th>Jam Selesai </th>
+                                            <th> : </th>
+                                            <th><?php echo $detail['jam_selesai']; ?></th>
+                                            <?php endif; ?>
+                                   <tr>
+                                   <tr>
                                        <th>Nama Petugas</th>
                                        <th> : </th>
                                        <th><?php echo $detail['nama_petugas']; ?></th>
@@ -49,66 +79,3 @@
                                        <?php endif; ?>
                                    </tr>
                                </table>
-                           </div>
-                           <div class="row">
-                           <div class="col-md-10">
-                           <div class="card-body">
-                               <div class="table-responsive">
-                                   <table class="table table-bordered" id="table">
-                                       <thead>
-                                           <th>KTP</th>
-                                           <th>KK</th>
-                                           <th>Pengantar RT RW</th>
-
-
-
-                                             <?php if ($detail['lampiran3'] == "") : ?>
-                                            <td style="visibility:hidden;">
-                                            <?php else : ?>
-                                            <th>Lampiran2</th>
-                                            <?php endif; ?>
-                                            
-                                            <?php if ($detail['lampiran4'] == "") : ?>
-                                            <td style="visibility:hidden;">
-                                            <?php else : ?>
-                                            <th>Lampiran3</th>
-                                            <?php endif; ?>
-                                       </thead>
-                                       <tr>
-                                            <td> <embed src="<?php echo base_url('assets/files/' . $detail['ktp']); ?>" class="img-thumbnail" alt=""></td>
-                                            <td> <embed src="<?php echo base_url('assets/files/' . $detail['kk']); ?>" class="img-thumbnail" alt=""></td>
-                                            <td> <embed src="<?php echo base_url('assets/files/' . $detail['pengantar']); ?>" class="img-thumbnail" alt=""></td>
-
-                                            <?php if ($detail['lampiran2'] == "") : ?>
-                                            <td style="visibility:hidden;">
-                                            <?php else : ?>>
-                                            <td> <embed src="<?php echo base_url('assets/files/' . $detail['lampiran2']); ?>" class="img-thumbnail" alt=""></td>
-                                            <?php endif; ?>
-
-                                            <?php if ($detail['lampiran3'] == "") : ?>
-                                            <td style="visibility:hidden;">
-                                            <?php else : ?>>
-                                            <td> <embed src="<?php echo base_url('assets/files/' . $detail['lampiran3']); ?>" class="img-thumbnail" alt=""></td>
-                                            <?php endif; ?>
-
-                                            <?php if ($detail['lampiran3'] == "") : ?>
-                                            <td style="visibility:hidden;">
-                                            <?php else : ?>>
-                                            <td> <embed src="<?php echo base_url('assets/files/' . $detail['lampiran4']); ?>" class="img-thumbnail" alt=""></td>
-                                            <?php endif; ?>
-                                      </tr>
-                                      </table>
-                                       </div>
-                                       </div>
-                                       </div>
-                                       </div>
-                   <div class="card-footer">
-                       <?php if ($detail['status_db_dokumen'] == 0) : ?>
-                        <a href="<?php echo base_url('user/unduh_dokumen/' . $detail['id_db_dokumen']); ?>" class="btn btn-primary btn-sm"><i class="fas fa-download"></i> Unduh Data <?php echo $detail['nama_dokumen']; ?></a>
-                       <?php else : ?>
-                       <?php endif; ?>
-                   </div>
-               </div>
-           </div>
-       </div>
-   </div>
