@@ -23,7 +23,7 @@
 </head>
 <style type="text/css">
     .bg {
-        background: url('<?php echo base_url(); ?>/assets/dist/img/davide-ragusa-1PHDS-PFtcM-unsplash.jpg') no-repeat center center fixed;
+        background: url('<?php echo base_url(); ?>/assets/dist/img/background.jpg') no-repeat center center fixed;
         /* background: lightskyblue; */
         -webkit-background-size: cover;
         -moz-background-size: cover;
