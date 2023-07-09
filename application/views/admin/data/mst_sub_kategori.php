@@ -9,7 +9,7 @@
            <div class="col-xl-12 col-lg-5">
                <div class="card shadow mb-4">
                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                       <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#add-user"><i class="fas fa-envelope"></i> <b>Tambah sub_kategori</b></button>
+                       <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#add-user"><i class="fas fa-envelope"></i> <b>Tambah Sub Kategori</b></button>
                    </div>
                    <div class="card-body">
                        <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
@@ -53,7 +53,7 @@
        <div class="modal-dialog">
            <div class="modal-content">
                <div class="modal-header">
-                   <h4 class="modal-title">Tambah sub_kategori</h4>
+                   <h4 class="modal-title">Tambah Sub Kategori</h4>
                </div>
                <div class="modal-body">
                    <div class="box-body">
@@ -85,7 +85,7 @@
                    <div class="box-body">
                        <form action="<?php echo base_url('admin/edit_sub_kategori'); ?>" method="post">
                            <div class="form-group">
-                               <label>Nama sub_kategori</label>
+                               <label>Nama Sub Kategori</label>
                                <input type="text" class="form-control form-control-sm" name="nama_sub_kategori" id="nama_sub_kategori" required>
                            </div>
                            <input type="hidden" name="id_sub_kategori" id="id_sub_kategori">

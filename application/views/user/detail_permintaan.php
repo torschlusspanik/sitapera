@@ -27,15 +27,15 @@
                                        <th><?php echo ($detail['jam_permintaan']); ?></th>
                                    </tr>
                                    <tr>
-                                       <th>Nama Unit</th>
-                                       <th> : </th>
-                                       <th><?php echo $detail['nama_unit']; ?></th>
-                                   </tr>
                                    <tr>
-                                       <th>Nama Unit</th>
-                                       <th> : </th>
-                                       <th><?php echo $detail['nama_unit']; ?></th>
-                                   </tr>
+                                   <?php if ($detail['nama_unit'] == "") : ?>
+                                            <td style="visibility:hidden;">
+                                            <?php else : ?>
+                                            <th>Nama Unit </th>
+                                            <th> : </th>
+                                            <th><?php echo $detail['nama_unit']; ?></th>
+                                            <?php endif; ?>
+                                            </tr>
                                    <tr>
                                    <?php if ($detail['urgas'] == "") : ?>
                                             <td style="visibility:hidden;">

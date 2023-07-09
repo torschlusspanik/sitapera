@@ -119,7 +119,7 @@ class User extends CI_Controller
     {
         $this->form_validation->set_rules('tgl_permintaan', 'Tanggal Permintaan', 'required|trim');
 
-            $data['title'] = 'Daftar Pending Permintaan ';
+            $data['title'] = 'Daftar Permintaan Terkirim ';
             $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
             $data['list_kategori'] = $this->db->get_where('kategori', ['id_kategori'])->result_array();
             $user_id = $this->session->userdata('id_user');
@@ -129,7 +129,6 @@ class User extends CI_Controller
             $this->load->view('templates/sidebar_user', $data);
             $this->load->view('templates/topbar', $data);
             $this->load->view('user/permintaan/permintaan_terkirim', $data);
-            $this->load->view('templates/footer');
         }
         
         public function permintaan()
@@ -178,7 +177,7 @@ class User extends CI_Controller
         $this->form_validation->set_rules('tgl_permintaan', 'Tanggal Permintaan', 'required|trim');
 
        
-            $data['title'] = 'Daftar Pending Permintaan ';
+            $data['title'] = 'Daftar Permintaan Selesai ';
             $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
             $data['list_kategori'] = $this->db->get_where('kategori', ['id_kategori'])->result_array();
             $user_id = $this->session->userdata('id_user');

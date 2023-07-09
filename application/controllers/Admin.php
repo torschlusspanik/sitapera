@@ -361,6 +361,13 @@ class Admin extends CI_Controller
         $this->session->set_flashdata('message', 'Hapus user');
         redirect('admin/mst_kategori');
     }
+    public function del_user($id_user)
+    {
+        $this->db->where('id_user', $id_user);
+        $this->db->delete('user_login');
+        $this->session->set_flashdata('message', 'Hapus user');
+        redirect('admin/man_user');
+    }
     public function mst_sub_kategori()
     {
         $this->form_validation->set_rules('nama_sub_kategori', 'Nama Sub kategori', 'required|trim|is_unique[sub_kategori.nama_sub_kategori]', array(
@@ -397,19 +404,33 @@ class Admin extends CI_Controller
         $id_sub_kategori = $this->input->post('id_sub_kategori');
         $nama_sub_kategori = $this->input->post('nama_sub_kategori');
 
-        $this->db->set('nama_kategori', $nama_kategori);
+        $this->db->set('nama_sub_kategori', $nama_sub_kategori);
 
-        $this->db->where('id_kategori', $id_kategori);
-        $this->db->update('kategori');
+        $this->db->where('id_sub_kategori', $id_sub_kategori);
+        $this->db->update('sub_kategori');
         $this->session->set_flashdata('message', 'Update data');
-        redirect('admin/mst_kategori');
+        redirect('admin/mst_sub_kategori');
     }
     public function del_sub_kategori($id_sub_kategori)
     {
         $this->db->where('id_sub_kategori', $id_sub_kategori);
         $this->db->delete('sub_kategori');
-        $this->session->set_flashdata('message', 'Hapus user');
+        $this->session->set_flashdata('message', 'Hapus Sub Kategori');
         redirect('admin/mst_sub_kategori');
+    }
+    public function del_unit($id_unit)
+    {
+        $this->db->where('id_unit', $id_unit);
+        $this->db->delete('unit_kerja');
+        $this->session->set_flashdata('message', 'Hapus Unit');
+        redirect('admin/mst_unit');
+    }
+    public function del_petugas($id_petugas)
+    {
+        $this->db->where('id_petugas', $id_petugas);
+        $this->db->delete('petugas');
+        $this->session->set_flashdata('message', 'Hapus petugas');
+        redirect('admin/mst_petugas');
     }
     public function penanganan()
     {

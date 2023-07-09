@@ -39,7 +39,8 @@
                                            <?php else : ?>
                                                <td class="text-center text-danger">Tidak Aktif</td>
                                            <?php endif; ?>
-                                           <td><a href="#" class="tombol-edit btn btn-info btn-sm" data-id="<?php echo $lu['id_unit']; ?>" data-toggle="modal" data-target="#detail-warga"><i class="fas fa-edit"></i></a></td>
+                                           <td><a href="#" class="tombol-edit btn btn-info btn-sm" data-id="<?php echo $lu['id_unit']; ?>" data-toggle="modal" data-target="#detail-warga"><i class="fas fa-edit"></i></a>
+                                           <a href="<?php echo base_url('admin/del_unit/') . $lu['id_unit']; ?>" class="tombol-hapus btn btn-danger btn-sm"><i class="far fa-trash-alt"></i></a></td>
                                        </tr>
                                    <?php endforeach; ?>
                                </tbody>
