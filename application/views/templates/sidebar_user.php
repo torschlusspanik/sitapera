@@ -2,9 +2,9 @@
 <ul class="navbar-nav bg-gray-800 sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
         <div class="sidebar-brand-icon">
-            <i class="fas fa-university"></i>
+            <i class="fas fa-battery-three-quarters"></i>
         </div>
         <div class="sidebar-brand-text mx-3">SITAPERA</div>
     </a>
@@ -23,8 +23,13 @@
         <?php echo $user['level']; ?>
     </div>
 
-    <li class="nav-item">
+    <li class="nav-item active">
+        <a class="nav-link" href="<?php echo base_url('user/permintaan'); ?>">
+            <i class="fas fa-fw fas fa-home"></i>
+            <span>Permintaan</span></a>
+    </li>
 
+    <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw far fa-envelope"></i>
                     <span>Daftar Permintaan</span>
@@ -36,22 +41,16 @@
                     </div>
                 </div>
     </li>
-    <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url('user/permintaan'); ?>">
-            <i class="fas fa-fw fas fa-home"></i>
-            <span>Permintaan</span></a>
-    </li>
-
-
+    
     <hr class="sidebar-divider">
-
     <div class="sidebar-heading">
-        END
+    AKUN
+        
     </div>
     <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url('auth/logout'); ?>" id="tombol-logout">
             <i class="fas fa-fw fa-sign-out-alt text-danger"></i>
-            <span>Logout</span></a>
+            <span>Keluar</span></a>
     </li>
 
     <hr class="sidebar-divider d-none d-md-block">
