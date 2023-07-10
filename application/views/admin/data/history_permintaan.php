@@ -1,7 +1,8 @@
    <!-- Begin Page Content -->
    <div class="container-fluid">
        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-           <h2 class="h4 mb-0 text-gray-800"><?php echo $title; ?></h2>
+           <h2 class="h4 mb-0 text-gray-800"><b>Histori Permintaan</b>
+           <!-- <?php echo $title; ?> --></h2> 
            <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
        </div>
        <div class="row">
@@ -13,7 +14,7 @@
                            <input type="date" class="form-control form-control-sm mb-2 mr-sm-2" name="tgl_awal" required>
                            <label class="mb-2 mr-sm-2"> - </label>
                            <input type="date" class="form-control form-control-sm mb-2 mr-sm-2" name="tgl_akhir" required>
-                           <button type="submit" class="btn btn-primary btn-sm mb-2">Submit</button>
+                           <button type="submit" class="btn btn-primary btn-sm mb-2">Tampilkan</button>
                        </form>
                    </div>
                    <div class="card-body">
@@ -21,8 +22,8 @@
                            <table class="table table-bordered" id="table-id" style="font-size:13px;">
                                <thead>
                                    <th>#</th>
-                                   <th>Tgl Permintaan</th>
-                                   <th>Nama Permintaan</th>
+                                   <th>Tanggal Permintaan</th>
+                                   <th>Kategori Permintaan</th>
                                    <th>Nama Unit</th>
                                    <th>Tanggal Selesai</th>
                                    <th>Status</th>

@@ -16,7 +16,7 @@
 
 <!-- Scroll to Top Button-->
 <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
+    <i class="fas fa-angle-double-up"></i>
 </a>
 
 <!-- Logout Modal-->
@@ -24,15 +24,15 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Logout?</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Keluar?</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Klik "Keluar" untuk mengakhiri session</div>
+            <div class="modal-body">Klik "Keluar" untuk mengakhiri sesi!</div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                <a class="btn btn-primary" href="<?php echo base_url('auth/logout'); ?>">Keluar</a>
+                <button class="btn btn-primary" type="button" data-dismiss="modal">Batal</button>
+                <a class="btn btn-danger" href="<?php echo base_url('auth/logout'); ?>">Keluar</a>
             </div>
         </div>
     </div>
@@ -92,7 +92,7 @@
         const href = $(this).attr('href');
         Swal.fire({
             title: 'Konfirmasi Hapus Data',
-            text: 'Klik hapus untuk menghapus data',
+            text: 'Klik "Hapus" untuk menghapus data!',
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -111,13 +111,14 @@
         e.preventDefault();
         const href = $(this).attr('href');
         Swal.fire({
-            title: 'Konfirmasi Logout',
-            text: 'Klik keluar untuk mengakhiri session',
+            title: 'Konfirmasi Keluar',
+            text: 'Klik "Keluar" untuk mengakhiri sesi!',
             type: 'danger',
+            confirmButtonColor: '#d33',
+            confirmButtonText: 'Keluar',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Keluar'
+            cancelButtonText: 'Batal',
+            cancelButtonColor: '#3085d6'
         }).then((result) => {
             if (result.value) {
                 document.location.href = href;

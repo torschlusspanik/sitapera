@@ -13,7 +13,7 @@
                            <input type="date" class="form-control form-control-sm mb-2 mr-sm-2" name="tgl_awal" required>
                            <label class="mb-2 mr-sm-2"> - </label>
                            <input type="date" class="form-control form-control-sm mb-2 mr-sm-2" name="tgl_akhir" required>
-                           <button type="submit" class="btn btn-primary btn-sm mb-2">Submit</button>
+                           <button type="submit" class="btn btn-primary btn-sm mb-2">Tampilkan</button>
                        </form>
                    </div>
                    <div class="card-body">
@@ -21,11 +21,11 @@
                            <table class="table table-bordered" id="table-table">
                                <thead>
                                    <th>#</th>
-                                   <th>Tgl Pengajuan</th>
-                                   <th>Nama permintaan</th>
+                                   <th>Tanggal Pengajuan</th>
+                                   <th>Kategori Permintaan</th>
                                    <th>Nama Unit</th>
-                                   <th>Tgl Selesai</th>
-                                   <th>Petugas</th>
+                                   <th>Tanggal Selesai</th>
+                                   <th>Nama Petugas</th>
                                    <th>Status</th>
                                </thead>
                                <tbody>
