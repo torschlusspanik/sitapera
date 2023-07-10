@@ -1,15 +1,17 @@
    <!-- Begin Page Content -->
    <div class="container-fluid">
        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-           <h2 class="h4 mb-0 text-gray-800"><?php echo $title; ?></h2>
+           <h2 class="h4 mb-0 text-gray-800"><b>Master Pengguna</b>
+           <!-- <?php echo $title; ?> --></h2> 
            <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
+           <button type="button" class="btn btn-dark btn-sm" onclick="window.history.back()">Kembali</button>
        </div>
        <div class="row">
            <div class="col-xl-12 col-lg-5">
                <div class="card shadow mb-4">
                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                        <!-- <h6 class="m-0 font-weight-bold text-primary"><?php echo $title; ?></h6> -->
-                       <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#add-user"><i class="fas fa-user-plus"></i> <b>Tambah User</b></button>
+                       <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#add-user"><i class="fas fa-user-plus"></i> <b>Tambah Pengguna</b></button>
                    </div>
                    <div class="card-body">
                        <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
@@ -29,7 +31,7 @@
                                    <th>No HP</th>
                                    <th>Level</th>
                                    <th>Status</th>
-                                   <th>Register</th>
+                                   <th>Tanggal Register</th>
                                    <th>Opsi</th>
                                </thead>
                                <tbody>
@@ -67,7 +69,7 @@
        <div class="modal-dialog">
            <div class="modal-content">
                <div class="modal-header">
-                   <h4 class="modal-title">Tambah User</h4>
+                   <h4 class="modal-title">Tambah Pengguna</h4>
                </div>
                <div class="modal-body">
                    <div class="box-body">
@@ -94,7 +96,7 @@
                            </div>
 
                            <div class="form-group">
-                     <label for="tgl_lahir">Tanggal lahir</label>
+                     <label for="tgl_lahir">Tanggal Lahir</label>
                          <input type="date" class="form-control" name="tanggal_lahir_lgn"  required>
                      </div>
 
@@ -108,20 +110,20 @@
                                <input type="email" class="form-control form-control-sm" name="email" required>
                            </div>
                            <div class="form-group">
-                               <label for="username">Username</label>
+                               <label for="username">Nama Pengguna</label>
                                <input type="text" class="form-control form-control-sm" name="username" required>
                            </div>
                            <div class="row">
                                <div class="col-md-6">
                                    <div class="form-group">
-                                       <label for="password">Password</label>
+                                       <label for="password">Kata Sandi</label>
                                        <input type="password" class="form-control form-control-sm" name="password1" required>
 
                                    </div>
                                </div>
                                <div class="col-md-6">
                                    <div class="form-group">
-                                       <label for="password2">Ketik Ulang Password</label>
+                                       <label for="password2">Ketik Ulang Kata Sandi</label>
                                        <input type="password" class="form-control form-control-sm" name="password2" required>
                                    </div>
                                </div>
@@ -144,13 +146,13 @@
        <div class="modal-dialog">
            <div class="modal-content">
                <div class="modal-header">
-                   <h4 class="modal-title">Edit User</h4>
+                   <h4 class="modal-title">Ubah Pengguna</h4>
                </div>
                <div class="modal-body">
                    <div class="box-body">
                        <form action="<?php echo base_url('admin/proses_edit_user'); ?>" method="post" id="form_id">
                            <div class="form-group">
-                               <label for="username">Username</label>
+                               <label for="username">Nama Pengguna</label>
                                <input type="text" class="form-control form-control-sm" name="username" id="username" readonly>
                            </div>
                            <div class="form-group">
@@ -175,7 +177,7 @@
                                </select>
                            </div>
                            <div class="form-group">
-                           <label for="tgl_lahir">Tanggal lahir</label>
+                           <label for="tgl_lahir">Tanggal Lahir</label>
                            <input type="date" class="form-control" name="tanggal_lahir_lgn" id="tanggal_lahir_lgn" required>
                      </div>
                            <div class="form-group">
