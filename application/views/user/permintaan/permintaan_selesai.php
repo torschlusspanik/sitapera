@@ -1,7 +1,8 @@
    <!-- Begin Page Content -->
    <div class="container-fluid">
        <div class="d-sm-flex align-items-center justify-content-between mb-1">
-           <h5 class="h5 mb-0 text-gray-800"><?php echo $title; ?></h5>
+           <h2 class="h4 mb-0 text-gray-800"><b>Daftar Permintaan Selesai</b>
+           <!-- <?php echo $title; ?> --></h2> 
        </div>
        <div class="row">
            <div class="col-xl-12 col-lg-5">
@@ -21,8 +22,8 @@
                            <table class="table table-bordered" id="table-id" style="font-size:13px;">
                                <thead>
                                    <th>#</th>
-                                   <th>Tgl</th>
-                                   <th>Jenis permintaan</th>
+                                   <th>Tanggal Permintaan</th>
+                                   <th>Kategori Permintaan</th>
                                    <th>Status</th>
                                    <th>Opsi</th>
                                </thead>
