@@ -1,8 +1,9 @@
    <!-- Begin Page Content -->
    <div class="container-fluid">
        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-           <h2 class="h4 mb-0 text-gray-800"><?php echo $title; ?></h2>
-           <a href="<?php echo base_url('admin/penanganan'); ?>" class="d-none d-sm-inline-block btn btn-sm btn-light shadow-sm">Kembali</a>
+           <h2 class="h4 mb-0 text-gray-800"><b>Detail Penanganan Permintaan</b>
+           <!-- <?php echo $title; ?> --></h2> 
+           <a href="<?php echo base_url('admin/penanganan'); ?>" class="d-none d-sm-inline-block btn btn-sm btn-dark shadow-sm">Kembali</a>
        </div>
        <div class="row">
            <div class="col-xl-12 col-lg-5">
@@ -24,17 +25,17 @@
                                        <th><?php echo $detail['nama_unit']; ?></th>
                                    </tr>
                                    <tr>
-                                       <th>Nama kategori</th>
+                                       <th>Nama Kategori</th>
                                        <th> : </th>
                                        <th><?php echo $detail['nama_kategori']; ?></th>
                                    </tr>
                                    <tr>
-                                       <th>Tanggal permintaan</th>
+                                       <th>Tanggal Permintaan</th>
                                        <th> : </th>
                                        <th><?php echo format_indo($detail['tgl_permintaan']); ?></th>
                                    </tr>
                                    <tr>
-                                       <th>Jam permintaan</th>
+                                       <th>Jam Permintaan</th>
                                        <th> : </th>
                                        <th><?php echo ($detail['jam_permintaan']); ?></th>
                                    </tr>
@@ -63,7 +64,7 @@
                                        <th>Status</th>
                                        <th> : </th>
                                        <?php if ($detail['status_db_permintaan'] == 1) : ?>
-                                           <th class="text-danger">Waiting...|
+                                           <th class="text-danger">Menunggu...
                                            </th>
                                            <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#proses">Proses Permintaan</button>
                                        <?php elseif ($detail['status_db_permintaan'] == 2) : ?>
@@ -106,7 +107,7 @@
                            <div class="form-check form-check-inline">
                            <input type="hidden" name="status_db_permintaan" value="2">
                            </div>
-                           <label> PILIH Petugas</label>
+                           <label> Pilih Petugas</label>
                            <select class="form-control form-control" name="petugas_id" required>
                            <?php foreach ($petugas as $petugas1) : ?>
                                 <option value="" selected disabled hidden>- Pilih -</option>
