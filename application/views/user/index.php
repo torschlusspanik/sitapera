@@ -84,7 +84,7 @@
                                          <?php if ($lu['status_db_permintaan'] == 1) : ?>
                                              <td class="text-center text-warning font-weight-bolder">PENDING</td>
                                          <?php elseif ($lu['status_db_permintaan'] == 2) : ?>
-                                             <td class="text-center text-info font-weight-bolder">PROSES</td>
+                                             <td class="text-center text-info font-weight-bolder">Proses</td>
                                          <?php else : ?>
                                              <td class="text-center text-success font-weight-bolder"><i class="far fa-check-circle fa-2x"></i></td>
                                          <?php endif; ?>

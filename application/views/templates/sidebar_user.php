@@ -25,7 +25,7 @@
 
     <li class="nav-item active">
         <a class="nav-link" href="<?php echo base_url('user/permintaan'); ?>">
-            <i class="fas fa-fw fas fa-home"></i>
+            <i class="fas fa-fw fas fa-book"></i>
             <span>Permintaan</span></a>
     </li>
 
