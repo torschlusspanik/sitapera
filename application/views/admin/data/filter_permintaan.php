@@ -30,7 +30,7 @@
                                </thead>
                                <tbody>
                                    <?php $i = 1; ?>
-                                   <?php foreach ($anjay as $lu) : ?>
+                                   <?php foreach ($filter as $lu) : ?>
                                        <tr>
                                            <td><?php echo $i++; ?></td>
                                            <td><?php echo format_indo($lu['tgl_permintaan']); ?></td>

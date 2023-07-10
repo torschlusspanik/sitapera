@@ -8,7 +8,7 @@
            <div class="col-xl-12 col-lg-5">
                <div class="card shadow mb-4">
                    <div class="card-header">
-                       <form class="form-inline" action="<?php echo base_url('admin/filter_permintaan'); ?>" method="post">
+                       <form class="form-inline" action="<?php echo base_url('admin/filter_alkes'); ?>" method="post">
                            <label class="mb-2 mr-sm-2">Periode : </label>
                            <input type="date" class="form-control form-control-sm mb-2 mr-sm-2" name="tgl_awal" required>
                            <label class="mb-2 mr-sm-2"> - </label>
@@ -18,15 +18,12 @@
                    </div>
                    <div class="card-body">
                        <div class="table-responsive">
-                           <table class="table table-bordered" id="table-id" style="font-size:13px;">
-                               <thead>
-                                   <th>#</th>
-                                   <th>Tgl Permintaan</th>
-                                   <th>Nama Permintaan</th>
-                                   <th>Nama Unit</th>
-                                   <th>Tanggal Selesai</th>
-                                   <th>Status</th>
-                                   <th>Opsi</th>
+                           <table class="table table-bordered" id="table-table">
+                           <thead>
+                                   <th>No</th>
+                                   <th>Tanggal</th>
+                                   <th>Unit Kerja</th>
+                                   <th>Alat Status Perbaikan</th>
                                </thead>
                                <tbody>
                                    <?php $i = 1; ?>
@@ -36,23 +33,8 @@
                                        <tr>
                                            <td><?php echo $i++; ?></td>
                                            <td><?php echo format_indo($lu['tgl_permintaan']); ?></td>
-                                           <td><?php echo $lu['nama_kategori']; ?></td>
                                            <td><?php echo $lu['nama_unit']; ?></td>
-                                           <?php if ($lu['tgl_selesai'] == "0000-00-00") : ?>
-                                            <td><?php echo "Proses"; ?></td>
-                                            <?php else : ?>  
-                                           <td><?php echo format_indo ($lu['tgl_selesai']); ?></td>
-                                           <?php endif; ?>
-                                               <?php if ($lu['status_db_permintaan'] == 2) : ?>
-                                               <td>Proses</td>
-                                           <?php elseif ($lu['status_db_permintaan'] == 3) : ?>
-                                               <td>Tidak Lengkap</td>
-                                           <?php else : ?>
-                                               <td>Selesai</td>
-                                           <?php endif; ?>
-                                           <td>
-                                           <a href="<?php echo base_url('admin/info_history/' . $lu['id_db_permintaan']); ?>" class="tombol-edit btn btn-info "><i class="fa fa-info"></i></a>
-                                          </td>
+                                           <td><?php echo "alat status perbaikan template" ?></td>
                                        </tr>
                                        <?php endif; ?>
                                    <?php endforeach; ?>

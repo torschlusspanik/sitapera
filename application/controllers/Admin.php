@@ -469,29 +469,18 @@ class Admin extends CI_Controller
         $this->load->view('admin/data/info_permintaan', $data);
         $this->load->view('templates/footer');
     }
-    public function info_dokumen($id_db_dokumen)
+    public function info_history($id_db_permintaan)
     {
-        $data['title'] = 'Detail Pengajuan Dokumen';
+        $data['title'] = 'Detail Penanganan Permintaan';
         $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
-        $data['detail'] = $this->admin->getInfoDokumen($id_db_dokumen);
+        $data['detail'] = $this->admin->getInfoPermintaan($id_db_permintaan);
+        $data['petugas'] = $this->db->get_where('petugas', ['status_petugas' => 1])->result_array();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar_admin', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('admin/data/info_dokumen', $data);
+        $this->load->view('admin/data/info_history', $data);
         $this->load->view('templates/footer');
-    }
-    public function ubah_status_dokumen()
-    {
-        $id_db_dokumen = $this->input->post('id_db_dokumen');
-        $status_db_dokumen = '2';
-
-        $this->db->set('status_db_dokumen', $status_db_dokumen);
-
-        $this->db->where('id_db_dokumen', $id_db_dokumen);
-        $this->db->update('db_dokumen');
-        $this->session->set_flashdata('message', 'Simpan Perubahan');
-        redirect('admin/info_dokumen/' . $id_db_dokumen);
     }
     public function ubah_status_permintaan()
     {
@@ -587,7 +576,7 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
         $tgl_awal = $this->input->post('tgl_awal');
         $tgl_akhir = $this->input->post('tgl_akhir');
-        $data['anjay'] = $this->admin->getFilterPermintaan($tgl_awal, $tgl_akhir);
+        $data['filter'] = $this->admin->getFilterPermintaan($tgl_awal, $tgl_akhir);
         $data['title'] = 'Periode Laporan ' . format_indo($tgl_awal) . ' - ' . format_indo($tgl_akhir);
 
         $this->load->view('templates/header', $data);
@@ -596,5 +585,67 @@ class Admin extends CI_Controller
         $this->load->view('admin/data/filter_permintaan', $data);
         $this->load->view('templates/footer');
     }
+    public function filter_utilitas()
+    {
+        $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
+        $tgl_awal = $this->input->post('tgl_awal');
+        $tgl_akhir = $this->input->post('tgl_akhir');
+        $data['filter'] = $this->admin->getFilterPermintaan($tgl_awal, $tgl_akhir);
+        $data['title'] = 'Laporan Utilitas Periode ' . format_indo($tgl_awal) . ' - ' . format_indo($tgl_akhir);
 
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_admin', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/data/filter_utilitas', $data);
+        $this->load->view('templates/footer');
+    }
+    public function filter_alkes()
+    {
+        $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
+        $tgl_awal = $this->input->post('tgl_awal');
+        $tgl_akhir = $this->input->post('tgl_akhir');
+        $data['filter'] = $this->admin->getFilterPermintaan($tgl_awal, $tgl_akhir);
+        $data['title'] = 'Laporan Alat Kesehatan Periode ' . format_indo($tgl_awal) . ' - ' . format_indo($tgl_akhir);
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_admin', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/data/filter_alkes', $data);
+        $this->load->view('templates/footer');
+    }
+    public function laporan_alkes()
+    {
+        $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
+        $tgl_awal = $this->input->post('tgl_awal');
+        $tgl_akhir = $this->input->post('tgl_akhir');
+        $data['filter'] = $this->admin->getFilterPermintaan($tgl_awal, $tgl_akhir);
+        $data['history'] = $this->admin->getPermintaanMasukReport();
+        $data['title'] = 'Laporan Alat Kesehatan ' . date('d - M - Y') . '';
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_admin', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/data/laporan_alkes', $data);
+        $this->load->view('templates/footer');
+    }
+    public function laporan_utilitas()
+    {
+        $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
+        $tgl_awal = $this->input->post('tgl_awal');
+        $tgl_akhir = $this->input->post('tgl_akhir');
+        $data['filter'] = $this->admin->getFilterPermintaan($tgl_awal, $tgl_akhir);
+        $data['history'] = $this->admin->getPermintaanMasukReport();
+        $data['title'] = 'Laporan Utilitas ' . date('d - M - Y') . '';
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_admin', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/data/laporan_utilitas', $data);
+        $this->load->view('templates/footer');
+    }
+    public function test()
+    {
+        $this->load->view('admin/data/test');
+        $this->load->view('templates/signa');
+    }
 }

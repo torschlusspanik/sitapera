@@ -48,13 +48,19 @@
                     <div class="form-group">
                     <label>Keterangan (Opsional)</label>
                          <textarea class="form-control" name="urgas" rows="3"  ></textarea>
-                </div>
-                </div>
-
+                </div>                            
+                <div class="col-md-12">
+                <div class="form-group" id="signatureform">
+                    <label>Tanda Tangan</label>
+                <div id="canvasDiv"></div>
+                <button type="button" class="btn btn-danger" id="reset-btn"><i class="far fa-trash-alt"></i></button>
+            </div>
              </div>
-
-                       
+                </div>
+            </div>
+            <hr>
+            <hr>       
                        <div class="box-footer">
-                           <button type="submit" class="btn btn-primary">Simpan Data</button>
+                           <button type="submit" class="btn btn-primary" id="btn-save">Simpan Data</button>
                        </div>
                        </form>

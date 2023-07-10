@@ -157,6 +157,7 @@ class User extends CI_Controller
                     'kategori_id' => $this->input->post('kategori_id', true),
                     'sub_kategori_id' => $this->input->post('sub_kategori_id', true),
                     'urgas' => $this->input->post('urgas', true),
+                    'signature' => $this->input->post('signature', true),
                     'status_db_permintaan' => 1
                 );
                 $this->db->insert('db_permintaan', $data);
