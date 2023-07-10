@@ -1,15 +1,16 @@
    <!-- Begin Page Content -->
    <div class="container-fluid">
        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-           <h2 class="h4 mb-0 text-gray-800"><?php echo $title; ?></h2>
+           <h2 class="h4 mb-0 text-gray-800"><b>Master Petugas</b>
+           <!-- <?php echo $title; ?> --></h2> 
            <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
-           <button type="button" class="btn btn-light btn-sm" onclick="window.history.back()">Kembali</button>
+           <button type="button" class="btn btn-dark btn-sm" onclick="window.history.back()">Kembali</button>
        </div>
        <div class="row">
            <div class="col-xl-12 col-lg-5">
                <div class="card shadow mb-4">
                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                       <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#add-user"><i class="fas fa-envelope"></i> <b>Tambah petugas</b></button>
+                       <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#add-user"><i class="fas fa-envelope"></i> <b>Tambah Petugas</b></button>
                    </div>
                    <div class="card-body">
                        <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
@@ -24,7 +25,7 @@
                            <table class="table table-bordered" id="table-id" style="font-size:13px;">
                                <thead>
                                    <th>#</th>
-                                   <th>Nama petugas</th>
+                                   <th>Nama Petugas</th>
                                    <th>Tanggal Lahir</th>
                                    <th>Jenis Kelamin</th>
                                    <th>Status</th>
@@ -62,13 +63,13 @@
        <div class="modal-dialog">
            <div class="modal-content">
                <div class="modal-header">
-                   <h4 class="modal-title">Tambah petugas</h4>
+                   <h4 class="modal-title">Tambah Petugas</h4>
                </div>
                <div class="modal-body">
                    <div class="box-body">
                        <form action="<?php echo base_url('admin/mst_petugas'); ?>" method="post">
                            <div class="form-group">
-                               <label>Nama petugas</label>
+                               <label>Nama Petugas</label>
                                <input type="text" class="form-control form-control-sm" name="nama_petugas" required>
                            </div>
                            <div class="form-group">
@@ -81,7 +82,7 @@
                            </div>
 
                            <div class="form-group">
-                     <label for="tgl_lahir">Tanggal lahir</label>
+                     <label for="tgl_lahir">Tanggal Lahir</label>
                          <input type="date" class="form-control" name="tgl_lahir_petugas"  required>
                      </div>
                            <div class="box-footer">
@@ -101,13 +102,13 @@
        <div class="modal-dialog">
            <div class="modal-content">
                <div class="modal-header">
-                   <h4 class="modal-title">Edit Data</h4>
+                   <h4 class="modal-title">Ubah Petugas</h4>
                </div>
                <div class="modal-body">
                    <div class="box-body">
                        <form action="<?php echo base_url('admin/edit_petugas'); ?>" method="post">
                            <div class="form-group">
-                               <label>Nama petugas</label>
+                               <label>Nama Petugas</label>
                                <input type="text" class="form-control form-control-sm" name="nama_petugas" id="nama_petugas" required>
                            </div>
                            <div class="form-group">
@@ -120,7 +121,7 @@
                            </div>
 
                            <div class="form-group">
-                     <label for="tgl_lahir">Tanggal lahir</label>
+                     <label for="tgl_lahir">Tanggal Lahir</label>
                          <input type="date" class="form-control" name="tgl_lahir_petugas" id="tgl_lahir_petugas"  required>
                      </div>
                            <div class="form-group">

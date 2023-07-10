@@ -1,7 +1,8 @@
    <!-- Begin Page Content -->
    <div class="container-fluid">
        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-           <h2 class="h4 mb-0 text-gray-800"><?php echo $title; ?></h2>
+           <h2 class="h4 mb-0 text-gray-800"><b>Penanganan Permintaan</b>
+           <!-- <?php echo $title; ?> --></h2> 
            <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
        </div>
        <div class="row">
@@ -12,8 +13,8 @@
                            <table class="table table-bordered" id="table-id" style="font-size:13px;">
                                <thead>
                                    <th>#</th>
-                                   <th>Tgl Pengajuan</th>
-                                   <th>Nama Permintaan</th>
+                                   <th>Tanggal Pengajuan</th>
+                                   <th>Kategori Permintaan</th>
                                    <th>Unit Kerja </th>
                                    <th>Status</th>
                                    <th>Opsi</th>
@@ -37,7 +38,7 @@
                                            <td><?php echo format_indo($lu['tgl_permintaan']); ?></td>
                                            <td><?php echo $lu['nama_kategori']; ?></td>
                                            <td><?php echo $lu['nama_unit']; ?></td>
-                                           <td class="text-center text-info font-weight-bolder">PROSES</td>
+                                           <td class="text-center text-info font-weight-bolder">Proses</td>
                                            <td>
                                            <a href="<?php echo base_url('admin/info_permintaan/' . $lu['id_db_permintaan']); ?>" class="tombol-edit btn btn-info "><i class="fas fa-edit"></i></a>
                                           </td>

@@ -1,9 +1,10 @@
    <!-- Begin Page Content -->
    <div class="container-fluid">
        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-           <h2 class="h4 mb-0 text-gray-800"><?php echo $title; ?></h2>
+           <h2 class="h4 mb-0 text-gray-800"><b>Master Sub Kategori</b>
+           <!-- <?php echo $title; ?> --></h2> 
            <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
-           <button type="button" class="btn btn-light btn-sm" onclick="window.history.back()">Kembali</button>
+           <button type="button" class="btn btn-dark btn-sm" onclick="window.history.back()">Kembali</button>
        </div>
        <div class="row">
            <div class="col-xl-12 col-lg-5">
@@ -24,7 +25,7 @@
                            <table class="table table-bordered" id="table-id" style="font-size:13px;">
                                <thead>
                                    <th>#</th>
-                                   <th>Nama Sub kategori</th>
+                                   <th>Nama Sub Kategori</th>
                                    <th>Opsi</th>
                                </thead>
                                <tbody>
@@ -59,7 +60,7 @@
                    <div class="box-body">
                        <form action="<?php echo base_url('admin/mst_sub_kategori'); ?>" method="post">
                            <div class="form-group">
-                               <label>Nama sub_kategori</label>
+                               <label>Nama Sub Kategori</label>
                                <input type="text" class="form-control form-control-sm" name="nama_sub_kategori" required>
                            </div>
                            <div class="box-footer">
@@ -79,7 +80,7 @@
        <div class="modal-dialog">
            <div class="modal-content">
                <div class="modal-header">
-                   <h4 class="modal-title">Edit Data</h4>
+                   <h4 class="modal-title">Ubah Sub Kategori</h4>
                </div>
                <div class="modal-body">
                    <div class="box-body">

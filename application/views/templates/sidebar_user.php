@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-<ul class="navbar-nav bg-gray-800 sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
@@ -25,7 +25,7 @@
 
     <li class="nav-item active">
         <a class="nav-link" href="<?php echo base_url('user/permintaan'); ?>">
-            <i class="fas fa-fw fas fa-home"></i>
+            <i class="fas fa-fw fas fa-book"></i>
             <span>Permintaan</span></a>
     </li>
 

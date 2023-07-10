@@ -2,7 +2,8 @@
         <?php echo $this->session->flashdata('msg'); ?>
      
     <div class="container-fluid">
-        <h5 class="h5 mb-0 text-gray-800"><?php echo $title; ?></h5>
+        <h2 class="h4 mb-0 text-gray-800"><b>Permintaan Perbaikan</b>
+           <!-- <?php echo $title; ?> --></h2> 
         <?php echo form_open_multipart('user/permintaan'); ?>
                 <br>
 
@@ -11,7 +12,7 @@
                         <input type="hidden" class="form-control form-control-sm" name="jam_permintaan" value="<?php echo date('H:i:s'); ?>">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>UNIT KERJA</label>
+                        <label>Unit Kerja</label>
                            <select class="form-control form-control-sm" name="unit_kerja_id" required>
                            <?php foreach ($unit as $unit1) : ?>
                                 <option value="" selected disabled hidden>- Pilih -</option>
@@ -23,9 +24,10 @@
                                 
                  <div class="col-md-6">
                     <div class="form-group">
-                    <label>PILIH KATEGORI</label>
+                    <label>Kategori Perbaikan</label>
                            <select class="form-control form-control-sm" name="kategori_id" required>
                                <?php foreach ($kategori as $kategori1) : ?>
+                                <option value="" selected disabled hidden>- Pilih -</option>  
                                    <option value="<?php echo $kategori1['id_kategori']; ?>"><?php echo $kategori1['nama_kategori']; ?></option  required>
                                <?php endforeach; ?>
                            </select>
@@ -34,7 +36,7 @@
 
                 <div class="col-md-6">
                     <div class="form-group">
-                    <label>PILIH SUB KATEGORI</label>
+                    <label>Sub Kategori Perbaikan</label>
                            <select class="form-control form-control-sm" name="sub_kategori_id" required>
                                <?php foreach ($sub_kategori as $sub_kategori1) : ?>
                                 <option value="" selected disabled hidden>- Pilih -</option>
@@ -46,7 +48,7 @@
 
                 <div class="col-md-12">
                     <div class="form-group">
-                    <label>Keterangan (Opsional)</label>
+                    <label>Keterangan Tambahan (Opsional)</label>
                          <textarea class="form-control" name="urgas" rows="3"  ></textarea>
                 </div>                            
                 <div class="col-md-12">
