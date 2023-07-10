@@ -13,7 +13,7 @@
          <div class="col-xl-4 col-lg-7">
              <div class="card shadow mb-4">
                  <div class="card-header">
-                     <h6 class="m-0 font-weight-bold text-primary">Profile</h6>
+                     <h6 class="m-0 font-weight-bold text-primary">Profil</h6>
                  </div>
                  <!-- Card Body -->
                  <div class="card-body">
@@ -31,13 +31,13 @@
                      <h5 class="profile-username text-center mt-1 mb-1"><?php echo $user['nama']; ?></h5>
                      <ul class="list-group list-group-unbordered mb-3">
                          <li class="list-group-item">
-                             <b>Tgl Register</b> <a class="float-right"><?php echo format_indo($user['date_created']); ?></a>
+                             <b>Tanggal Register</b> <a class="float-right"><?php echo format_indo($user['date_created']); ?></a>
                          </li>
                          <li class="list-group-item">
                              <b>Level</b> <a class="float-right"><?php echo $user['level']; ?></a>
                          </li>
                          <li class="list-group-item">
-                             <b>Jenis kelamin </b> <a class="float-right"><?php echo $user['jk_lgn']; ?></a>
+                             <b>Jenis Kelamin </b> <a class="float-right"><?php echo $user['jk_lgn']; ?></a>
                          </li>
                          <li class="list-group-item">
                              <b>Email</b> <a class="float-right"><?php echo $user['email']; ?></a>
@@ -46,11 +46,11 @@
                              <b>No HP</b> <a class="float-right"><?php echo $user['hp']; ?></a>
                          </li>
                          <li class="list-group-item">
-                             <b>Tgl Lahir</b> <a class="float-right"><?php echo format_indo($user['tanggal_lahir_lgn']); ?></a>
+                             <b>Tanggal Lahir</b> <a class="float-right"><?php echo format_indo($user['tanggal_lahir_lgn']); ?></a>
                          </li>
                      </ul>
-                     <button type="button" class="btn btn-primary btn-sm btn-block" data-toggle="modal" data-target="#edit-profile"><b>Ubah Profile</b></button>
-                     <button type="button" class="btn btn-danger btn-sm btn-block" data-toggle="modal" data-target="#edit-pass"><b>Ubah Password</b></button>
+                     <button type="button" class="btn btn-primary btn-sm btn-block" data-toggle="modal" data-target="#edit-profile"><b>Ubah Profil</b></button>
+                     <button type="button" class="btn btn-danger btn-sm btn-block" data-toggle="modal" data-target="#edit-pass"><b>Ubah Kata Sandi</b></button>
                  </div>
              </div>
          </div>
@@ -60,7 +60,7 @@
              <div class="card shadow mb-4">
                  <!-- Card Header - Dropdown -->
                  <div class="card-header ">
-                     <h6 class="m-0 font-weight-bold text-primary">Permintaan Saya</h6>
+                     <h6 class="m-0 font-weight-bold text-primary">Daftar Permintaan</h6>
                  </div>
                  <!-- Card Body -->
                  <div class="card-body">
@@ -68,7 +68,7 @@
                          <table class="table table-bordered" id="table-id" style="font-size:13px;">
                              <thead>
                                  <th>#</th>
-                                 <th>Tgl</th>
+                                 <th>Tanggal</th>
                                  <th>Jenis Permintaan</th>
                                  <th>Keterangan</th>
                                  <th>Status</th>
@@ -114,7 +114,7 @@
      <div class="modal-dialog">
          <div class="modal-content">
              <div class="modal-header">
-                 <h4 class="modal-title">Edit Profile</h4>
+                 <h4 class="modal-title">Ubah Profil</h4>
                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                  </button>
@@ -122,7 +122,7 @@
              <div class="modal-body">
                  <?php echo form_open_multipart('user/index'); ?>
                  <div class="form-group row">
-                     <label for="username" class="col-sm-2 col-form-label">Username</label>
+                     <label for="username" class="col-sm-2 col-form-label">Nama Pengguna</label>
                      <div class="col-sm-10">
                          <input type="hidden" name="id_user" value="<?php echo $user['id_user']; ?>">
                          <input type="text" class="form-control" id="username" value="<?php echo $user['username']; ?>" readonly>
@@ -157,13 +157,13 @@
                      </div>
                  </div>
                  <div class="form-group row">
-                     <label for="name" class="col-sm-2 col-form-label">Tanggal lahir</label>
+                     <label for="name" class="col-sm-2 col-form-label">Tanggal Lahir</label>
                      <div class="col-sm-10">
                          <input type="date" class="form-control" name="tanggal_lahir_lgn" value="<?php echo $user['tanggal_lahir_lgn']; ?>" required>
                      </div>
                  </div>
                  <div class="form-group row">
-                     <div class="col-sm-2"><label>Photo</label></div>
+                     <div class="col-sm-2"><label>Foto</label></div>
                      <div class="col-sm-10">
                          <div class="row">
                              <div class="col-sm-3">
@@ -171,7 +171,7 @@
                              </div>
                              <div class="col-sm-9">
                                  <div class="form-group">
-                                     <label for="exampleFormControlFile1">Upload Photo</label>
+                                     <label for="exampleFormControlFile1">Unggah Foto</label>
                                      <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image">
                                  </div>
                              </div>
@@ -195,7 +195,7 @@
      <div class="modal-dialog">
          <div class="modal-content">
              <div class="modal-header">
-                 <h4 class="modal-title">Ubah Password</h4>
+                 <h4 class="modal-title">Ubah Kata Sandi</h4>
                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                  </button>
@@ -203,16 +203,16 @@
              <div class="modal-body">
                  <form action="<?php echo base_url('user/ubah_password'); ?>" method="post">
                      <div class="form-group">
-                         <label for="current_password">Password Lama</label>
+                         <label for="current_password">Kata Sandi Lama</label>
                          <input type="password" class="form-control" id="current_password" name="current_password">
                      </div>
                      <div class="form-group">
-                         <label for="new_password1">Password Baru</label>
+                         <label for="new_password1">Kata Sandi Baru</label>
                          <input type="password" class="form-control" id="new_password1" name="new_password1">
                      </div>
                      <div class="form-group">
-                         <label for="new_password2">Ulang Password Baru</label>
-                         <input type="password" class="form-control" id="new_password2" name="new_password2" placeholder="Ketik ulang password baru">
+                         <label for="new_password2">Ulang Kata Sandi Baru</label>
+                         <input type="password" class="form-control" id="new_password2" name="new_password2" placeholder="Ketik ulang kata sandi baru">
                      </div>
                      <button type="button" class="btn btn-default float-right ml-1" data-dismiss="modal">Tutup</button>
                      <button type="submit" class="btn btn-primary float-right">Simpan Perubahan</button>

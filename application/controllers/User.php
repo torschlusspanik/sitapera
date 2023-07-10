@@ -1,3 +1,5 @@
+<title>Si TAPERA | Sistem Informasi Permintaan Perbaikan Alat dan Sarana Prasarana</title>
+
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 date_default_timezone_set('Asia/Jakarta');
