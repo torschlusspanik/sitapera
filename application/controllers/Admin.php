@@ -191,9 +191,25 @@ class Admin extends CI_Controller
         $this->load->view('admin/data/history_permintaan', $data);
         $this->load->view('templates/footer');
     }
+    public function history_permintaan2()
+    {
+
+        $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
+        $tgl_awal = $this->input->post('tgl_awal');
+        $tgl_akhir = $this->input->post('tgl_akhir');
+        $data['history2'] = $this->admin->getFilterPermintaan($tgl_awal, $tgl_akhir);
+        $data['title'] = 'Periode History ' . format_indo($tgl_awal) . ' - ' . format_indo($tgl_akhir);
+
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_admin', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/data/history_permintaan2', $data);
+        $this->load->view('templates/footer');
+    }
 
  
-    public function print($id_db_dokumen)
+    public function print2($id_db_dokumen)
     {
         $this->load->library('dompdf_gen');
 
@@ -201,6 +217,24 @@ class Admin extends CI_Controller
         $data['detail'] = $this->admin->getInfoDokumen($id_db_dokumen);
         $data['kepdes'] = $this->db->get_where('profile_desa', ['penanggung_jawab'])->row_array();
         $tgl_respon = date('Y/m/d');
+        $this->load->view('admin/data/print' , $data);
+
+        $paper_size = 'A4';
+        $orientation ='portrait';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream('dokumen1.pdf', array('Attachment' => 0));
+
+    }
+    public function print($id_db_permintaan)
+    {
+        $this->load->library('dompdf_gen');
+
+        $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
+        $data['detail'] = $this->admin->getInfoPermintaan($id_db_dokumen);
         $this->load->view('admin/data/print' , $data);
 
         $paper_size = 'A4';
@@ -245,6 +279,7 @@ class Admin extends CI_Controller
         $id_unit = $this->input->post('id_unit');
         echo json_encode($this->db->get_where('unit_kerja', ['id_unit' => $id_unit])->row_array());
     }
+
 
     public function edit_unit()
     {
@@ -498,35 +533,92 @@ class Admin extends CI_Controller
         $this->session->set_flashdata('message', 'Simpan Perubahan');
         redirect('admin/info_permintaan/' . $id_db_permintaan);
     }
-    public function ubah_proses()
+    
+    public function ubah_proses($id_db_permintaan)
     {
-        $id_db_permintaan = $this->input->post('id_db_permintaan');
-        $status_db_permintaan = '2';
-        $petugas = $this->input->post('petugas_id');
 
-        $this->db->set('petugas_id', $petugas);
-        $this->db->set('status_db_permintaan', $status_db_permintaan);
+        $this->form_validation->set_rules('tgl_mulai', 'Tanggal Mulai', 'required|trim');
+        if ($this->form_validation->run() == FALSE) {
 
-        $this->db->where('id_db_permintaan', $id_db_permintaan);
-        $this->db->update('db_permintaan');
-        $this->session->set_flashdata('message', 'Simpan Perubahan');
-        redirect('admin/info_permintaan/' . $id_db_permintaan);
+            $data['title'] = 'Proses Permintaan';
+            $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
+            $data['detail'] = $this->admin->getInfoPermintaan($id_db_permintaan);
+            
+            
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar_admin', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('admin/data/info_permintaan', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $config['upload_path']   = './assets/signature_iprs/';
+            $config['allowed_types'] = 'jpeg|jpg|png';
+            $config['max_size']      = 2024;
+            $this->load->library('upload', $config);
+            $this->upload->do_upload('signature_iprs');
+            $signature_iprs = $this->upload->data('file_name');
+
+            $data = [
+                'tgl_mulai' => $this->input->post('tgl_mulai', true),
+                'jam_mulai' => $this->input->post('jam_mulai', true),
+                'signature_iprs' => $signature_iprs,
+                'petugas_id' => $this->input->post('petugas_id', true),
+                'status_db_permintaan' => 2
+            ];
+            $this->db->insert('db_permintaan', $data);
+
+            $this->db->where('id_db_permintaan', $id_db_permintaan);
+            $this->db->update('db_permintaan', $data);
+
+
+            $this->session->set_flashdata('message', 'Simpan Perubahan');
+            redirect('admin/info_permintaan/' . $id_db_permintaan);
+        }
     }
-    public function ubah_selesai()
+    public function ubah_selesai($id_db_permintaan)
     {
-        $id_db_permintaan = $this->input->post('id_db_permintaan');
-        $tgl_selesai = date('Y/m/d');
-        $jam_selesai = date('H:i:s');
-        $status_db_permintaan = '5';
+        {
 
-        $this->db->set('tgl_selesai', $tgl_selesai);
-        $this->db->set('jam_selesai', $jam_selesai);
-        $this->db->set('status_db_permintaan', $status_db_permintaan);
-
-        $this->db->where('id_db_permintaan', $id_db_permintaan);
-        $this->db->update('db_permintaan');
-        $this->session->set_flashdata('message', 'Simpan Perubahan');
-        redirect('admin/info_permintaan/' . $id_db_permintaan);
+            $this->form_validation->set_rules('tgl_selesai', 'Tanggal Selesai', 'required|trim');
+            if ($this->form_validation->run() == FALSE) {
+    
+                $data['title'] = 'Selesaikan Permintaan';
+                $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
+                $data['detail'] = $this->admin->getInfoPermintaan($id_db_permintaan);
+                
+                
+                $this->load->view('templates/header', $data);
+                $this->load->view('templates/sidebar_admin', $data);
+                $this->load->view('templates/topbar', $data);
+                $this->load->view('admin/data/info_permintaan', $data);
+                $this->load->view('templates/footer');
+            } else {
+                $config['upload_path']   = './assets/signature_mengetahui/';
+                $config['allowed_types'] = 'jpeg|jpg|png';
+                $config['max_size']      = 2024;
+                $this->load->library('upload', $config);
+                $this->upload->do_upload('signature_mengetahui');
+                $signature_mengetahui = $this->upload->data('file_name');
+    
+                $data = [
+                    'tgl_selesai' => $this->input->post('tgl_selesai', true),
+                    'jam_selesai' => $this->input->post('jam_selesai', true),
+                    'signature_mengetahui' => $signature_mengetahui,
+                    'petugas_id' => $this->input->post('petugas_id', true),
+                    'hasil_kgt' => $this->input->post('hasil_kgt', true),
+                    'bhn_hasil' => $this->input->post('bhn_hasil', true),
+                    'status_db_permintaan' => 5
+                ];
+                $this->db->insert('db_permintaan', $data);
+    
+                $this->db->where('id_db_permintaan', $id_db_permintaan);
+                $this->db->update('db_permintaan', $data);
+    
+    
+                $this->session->set_flashdata('message', 'Simpan Perubahan');
+                redirect('admin/info_permintaan/' . $id_db_permintaan);
+            }
+        }
     }
     public function upload_dokumen1($id_db_dokumen)
     {
@@ -644,10 +736,5 @@ class Admin extends CI_Controller
         $this->load->view('templates/topbar', $data);
         $this->load->view('admin/data/laporan_utilitas', $data);
         $this->load->view('templates/footer');
-    }
-    public function test()
-    {
-        $this->load->view('admin/data/test');
-        $this->load->view('templates/signa');
     }
 }

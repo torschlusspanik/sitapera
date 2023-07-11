@@ -48,21 +48,27 @@
 
                 <div class="col-md-12">
                     <div class="form-group">
-                    <label>Keterangan Tambahan (Opsional)</label>
+                    <label>Uraian Tugas</label>
                          <textarea class="form-control" name="urgas" rows="3"  ></textarea>
-                </div>                            
-                <div class="col-md-12">
-                <div class="form-group" id="signatureform">
-                    <label>Tanda Tangan</label>
-                <div id="canvasDiv"></div>
-                <button type="button" class="btn btn-danger" id="reset-btn"><i class="far fa-trash-alt"></i></button>
-            </div>
-             </div>
-                </div>
-            </div>
-            <hr>
-            <hr>       
+                </div>     
+                
+                <div class="row">
+                <div class="col-md-4">
+                     <div class="form-group">
+                        <label>Upload Scan Tanda Tangan</label>
+                            <input type="file" class="form-control-file" name="signature" required>
+                    </div>  
+                               </div> 
+                               </div>
+                               </div>
+                    <div class="text-muted mb-1">
+                           * Ekstensi file jpg, png, jpeg, dan pdf
+                           <br>
+                           * Ukuran file tidak lebih dari 5 MB
+                       </div>       
+                       </div>         
+                       <hr>         
                        <div class="box-footer">
-                           <button type="submit" class="btn btn-primary" id="btn-save">Simpan Data</button>
+                           <button type="submit" class="btn btn-primary" >Simpan Data</button>
                        </div>
                        </form>

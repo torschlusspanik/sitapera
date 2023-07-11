@@ -30,7 +30,7 @@
                                        <th><?php echo $detail['nama_kategori']; ?></th>
                                    </tr>
                                    <tr>
-                                       <th>Tanggal Permintaan</th>
+                                       <th>Tanggal Permintaan </th>
                                        <th> : </th>
                                        <th><?php echo format_indo($detail['tgl_permintaan']); ?></th>
                                    </tr>
@@ -39,6 +39,23 @@
                                        <th> : </th>
                                        <th><?php echo ($detail['jam_permintaan']); ?></th>
                                    </tr>
+                                   <tr>
+                                   <?php if ($detail['tgl_mulai'] == "0000-00-00") : ?>
+                                            <td style="visibility:hidden;">
+                                            <?php else : ?>
+                                            <th>Tanggal Mulai </th>
+                                            <th> : </th>
+                                            <th><?php echo format_indo($detail['tgl_mulai']); ?></th>
+                                            <?php endif; ?>
+                                            </tr>
+                                            <?php if ($detail['jam_mulai'] == "00:00:00") : ?>
+                                            <td style="visibility:hidden;">
+                                            <?php else : ?>
+                                            <th>Jam Mulai </th>
+                                            <th> : </th>
+                                            <th><?php echo $detail['jam_mulai']; ?></th>
+                                            <?php endif; ?>
+                                   <tr>
                                    <tr>
                                    <?php if ($detail['tgl_selesai'] == "0000-00-00") : ?>
                                             <td style="visibility:hidden;">
@@ -55,11 +72,33 @@
                                             <th> : </th>
                                             <th><?php echo $detail['jam_selesai']; ?></th>
                                             <?php endif; ?>
-                                   <tr>
-                                       <th>Nama Petugas</th>
-                                       <th> : </th>
-                                       <th><?php echo $detail['nama_petugas']; ?></th>
-                                   </tr>
+                                            <tr>
+                                   <?php if ($detail['nama_petugas'] == "") : ?>
+                                            <td style="visibility:hidden;">
+                                            <?php else : ?>
+                                            <th>Pelaksana </th>
+                                            <th> : </th>
+                                            <th><?php echo $detail['nama_petugas']; ?></th>
+                                            <?php endif; ?>
+                                            </tr>
+                                            <tr>
+                                   <?php if ($detail['hasil_kgt'] == "") : ?>
+                                            <td style="visibility:hidden;">
+                                            <?php else : ?>
+                                            <th>Hasil Kegiatan </th>
+                                            <th> : </th>
+                                            <th><?php echo $detail['hasil_kgt']; ?></th>
+                                            <?php endif; ?>
+                                            </tr>
+                                            <tr>
+                                   <?php if ($detail['bhn_hasil'] == "") : ?>
+                                            <td style="visibility:hidden;">
+                                            <?php else : ?>
+                                            <th>Bahan Hasil  </th>
+                                            <th> : </th>
+                                            <th><?php echo $detail['bhn_hasil']; ?></th>
+                                            <?php endif; ?>
+                                            </tr>
                                    <tr>
                                        <th>Status</th>
                                        <th> : </th>
@@ -95,30 +134,60 @@
 
                                        
    <div class="modal fade" id="proses">
-       <div class="modal-dialog modal-sm">
+       <div class="modal-dialog modal-lg">
            <div class="modal-content">
                <div class="modal-header">
                    <h4 class="modal-title">Proses Permintaan</h4>
                </div>
                <div class="modal-body">
                    <div class="box-body">
-                       <form action="<?php echo base_url('admin/ubah_proses'); ?>" method="post">
-                           <input type="hidden" name="id_db_permintaan" value="<?php echo $detail['id_db_permintaan']; ?>">
-                           <div class="form-check form-check-inline">
-                           <input type="hidden" name="status_db_permintaan" value="2">
-                           </div>
-                           <label> Pilih Petugas</label>
-                           <select class="form-control form-control" name="petugas_id" required>
-                           <?php foreach ($petugas as $petugas1) : ?>
-                                <option value="" selected disabled hidden>- Pilih -</option>
-                                   <option value="<?php echo $petugas1['id_petugas']; ?>"><?php echo $petugas1['nama_petugas']; ?></option>
-                                   <?php endforeach; ?>
+                   <?php echo form_open_multipart('admin/ubah_proses/' . $detail['id_db_permintaan']); ?>
+                <br>
+
+            <div class="row">
+
+            <div class="col-md-6">
+            <div class="form-group">
+                     <label for="name" >Tanggal Mulai</label>
+                         <input type="date" class="form-control" name="tgl_mulai"  required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+            <div class="form-group">
+                     <label for="name" >Jam Mulai</label>
+                         <input type="time" class="form-control" name="jam_mulai"  required>
+                    </div>
+                </div>
+                                
+                 <div class="col-md-12">
+                    <div class="form-group">
+                    <label>Pelaksana</label>
+                           <select class="form-control form-control-sm" name="petugas_id" required>
+                               <?php foreach ($petugas  as $petugas1 ) : ?>
+                                <option value="" selected disabled hidden>- Pilih -</option>  
+                                   <option value="<?php echo $petugas1['id_petugas']; ?>"><?php echo $petugas1['nama_petugas']; ?></option  required>
+                               <?php endforeach; ?>
                            </select>
-                           <hr>
-                           <div class="box-footer">
-                               <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                               <button type="button" class="btn btn-info" data-dismiss="modal">Tutup</button>
-                           </div>
+                    </div>
+                </div>
+                <hr>
+                <hr>
+                <div class="col-md-12">
+                     <div class="form-group">
+                        <label>Upload Scan Tanda Tangan Disposisi Kepala</label>
+                            <input type="file" class="form-control-file" name="signature_iprs" required>
+                    </div>  
+                    <div class="text-muted mb-1">
+                           * Ekstensi file jpg, png, dan jpeg
+                           <br>
+                           * Ukuran file tidak lebih dari 5 MB
+                       </div>    
+                               </div>   
+                       </div>         
+                       <hr>         
+                       <div class="box-footer">
+                           <button type="submit" class="btn btn-primary" >Simpan Data</button>
+                       </div>
                        </form>
                        <div class="box-footer">
                        </div>
@@ -127,28 +196,77 @@
            </div>
        </div>
    </div>
+
+
+
+
    <div class="modal fade" id="selesai">
-       <div class="modal-dialog modal-sm">
+       <div class="modal-dialog modal-lg">
            <div class="modal-content">
                <div class="modal-header">
                    <h4 class="modal-title">Selesaikan Permintaan?</h4>
                </div>
                <div class="modal-body">
                    <div class="box-body">
-                       <form action="<?php echo base_url('admin/ubah_selesai'); ?>" method="post">
-                           <input type="hidden" name="id_db_permintaan" value="<?php echo $detail['id_db_permintaan']; ?>">
-                           <div class="form-check form-check-inline">
-                           <input type="hidden" name="status_db_permintaan" value="2">
-                           </div>
-                           <div class="form-group">
-                               <label>Nama Petugas</label>
-                               <input type="text" class="form-control form-control-sm" name="petugas_id" value="<?php echo $petugas1['nama_petugas']; ?>" readonly>
-                           </div>
-                           <hr>
-                           <div class="box-footer">
-                               <button type="submit" class="btn btn-success">Selesai</button>
-                               <button type="button" class="btn btn-info" data-dismiss="modal">Tutup</button>
-                           </div>
+                       <?php echo form_open_multipart('admin/ubah_selesai/' . $detail['id_db_permintaan']); ?>
+                <br>
+
+            <div class="row">
+
+            <div class="col-md-6">
+            <div class="form-group">
+                     <label for="name" >Tanggal Selesai</label>
+                         <input type="date" class="form-control" name="tgl_selesai"  required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+            <div class="form-group">
+                     <label for="name" >Jam Selesai</label>
+                         <input type="time" class="form-control" name="jam_selesai"  required>
+                    </div>
+                </div>
+                                
+                 <div class="col-md-12">
+                    <div class="form-group">
+                    <label>Pelaksana</label>
+                           <select class="form-control form-control-sm" name="petugas_id" required>
+                               <?php foreach ($petugas  as $petugas1 ) : ?>
+                                <option value="<?php echo $detail['petugas_id']; ?>" selected disabled hidden><?php echo $detail['nama_petugas']; ?></option>  
+                                   <option value="<?php echo $petugas1['id_petugas']; ?>"><?php echo $petugas1['nama_petugas']; ?></option  required>
+                               <?php endforeach; ?>
+                           </select>
+                    </div>
+                </div>
+                <hr>
+                
+                <div class="col-md-12">
+                    <div class="form-group">
+                    <label>Hasil Kegiatan Pelaksanaan Pekerjaan</label>
+                         <textarea class="form-control" name="hasil_kgt" rows="2"  ></textarea>
+                </div>  
+                 </div> 
+                 <div class="col-md-12">
+                    <div class="form-group">
+                    <label>Bahan Hasil Pelaksanaan Pekerjaan</label>
+                         <textarea class="form-control" name="bhn_hasil" rows="2"  ></textarea>
+                </div>   
+                <hr>
+                <div class="col-md-12">
+                     <div class="form-group">
+                        <label>Upload Scan Tanda Tangan Mengetahui</label>
+                            <input type="file" class="form-control-file" name="signature_mengetahui" required>
+                    </div>  
+                    <div class="text-muted mb-1">
+                           * Ekstensi file jpg, png, dan jpeg
+                           <br>
+                           * Ukuran file tidak lebih dari 5 MB
+                       </div>    
+                               </div>   
+                       </div>         
+                       <hr>         
+                       <div class="box-footer">
+                           <button type="submit" class="btn btn-primary" >Simpan Data</button>
+                       </div>
                        </form>
                        <div class="box-footer">
                        </div>

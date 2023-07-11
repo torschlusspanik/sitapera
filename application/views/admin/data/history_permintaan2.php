@@ -1,8 +1,7 @@
    <!-- Begin Page Content -->
    <div class="container-fluid">
        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-           <h2 class="h4 mb-0 text-gray-800"><b>Histori Permintaan</b>
-           <!-- <?php echo $title; ?> --></h2> 
+        <h2> <?php echo $title ?> </h2>
            <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
        </div>
        <div class="row">
@@ -31,7 +30,7 @@
                                </thead>
                                <tbody>
                                    <?php $i = 1; ?>
-                                   <?php foreach ($history as $lu) : ?>
+                                   <?php foreach ($history2 as $lu) : ?>
                                     <?php if ($lu['status_db_permintaan'] == 1) : ?>
                                         <?php else : ?>
                                        <tr>

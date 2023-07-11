@@ -1,16 +1,15 @@
    <!-- Begin Page Content -->
    <div class="container-fluid">
        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-           <h2 class="h4 mb-0 text-gray-800"><b>Master Unit Kerja</b>
-           <!-- <?php echo $title; ?> --></h2> 
+           <h2 class="h4 mb-0 text-gray-800"><?php echo $title; ?></h2>
            <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
-           <button type="button" class="btn btn-dark btn-sm" onclick="window.history.back()">Kembali</button>
+           <button type="button" class="btn btn-light btn-sm" onclick="window.history.back()">Kembali</button>
        </div>
        <div class="row">
            <div class="col-xl-12 col-lg-5">
                <div class="card shadow mb-4">
                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                       <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#add-user"><i class="fas fa-envelope"></i> <b>Tambah Unit Kerja</b></button>
+                       <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#add-user"><i class="fas fa-envelope"></i> <b>Tambah unit</b></button>
                    </div>
                    <div class="card-body">
                        <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
@@ -25,7 +24,7 @@
                            <table class="table table-bordered" id="table-id" style="font-size:13px;">
                                <thead>
                                    <th>#</th>
-                                   <th>Nama Unit Kerja</th>
+                                   <th>Nama unit</th>
                                    <th>Status</th>
                                    <th>Opsi</th>
                                </thead>
@@ -40,8 +39,7 @@
                                            <?php else : ?>
                                                <td class="text-center text-danger">Tidak Aktif</td>
                                            <?php endif; ?>
-                                           <td><a href="#" class="tombol-edit btn btn-info btn-sm" data-id="<?php echo $lu['id_unit']; ?>" data-toggle="modal" data-target="#detail-warga"><i class="fas fa-edit"></i></a>
-                                           <a href="<?php echo base_url('admin/del_unit/') . $lu['id_unit']; ?>" class="tombol-hapus btn btn-danger btn-sm"><i class="far fa-trash-alt"></i></a></td>
+                                           <td><a href="#" class="tombol-edit btn btn-info btn-sm" data-id="<?php echo $lu['id_unit']; ?>" data-toggle="modal" data-target="#detail-warga"><i class="fas fa-edit"></i></a></td>
                                        </tr>
                                    <?php endforeach; ?>
                                </tbody>
@@ -58,13 +56,13 @@
        <div class="modal-dialog">
            <div class="modal-content">
                <div class="modal-header">
-                   <h4 class="modal-title">Tambah Unit Kerja</h4>
+                   <h4 class="modal-title">Tambah unit</h4>
                </div>
                <div class="modal-body">
                    <div class="box-body">
                        <form action="<?php echo base_url('admin/mst_unit'); ?>" method="post">
                            <div class="form-group">
-                               <label>Nama Unit Kerja</label>
+                               <label>Nama unit</label>
                                <input type="text" class="form-control form-control-sm" name="nama_unit" required>
                            </div>
                            <div class="box-footer">
@@ -84,13 +82,13 @@
        <div class="modal-dialog">
            <div class="modal-content">
                <div class="modal-header">
-                   <h4 class="modal-title">Ubah Unit Kerja</h4>
+                   <h4 class="modal-title">Edit Data</h4>
                </div>
                <div class="modal-body">
                    <div class="box-body">
                        <form action="<?php echo base_url('admin/edit_unit'); ?>" method="post">
                            <div class="form-group">
-                               <label>Nama Unit Kerja</label>
+                               <label>Nama unit</label>
                                <input type="text" class="form-control form-control-sm" name="nama_unit" id="nama_unit" required>
                            </div>
                            <div class="form-group">

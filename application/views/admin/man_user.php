@@ -146,13 +146,13 @@
        <div class="modal-dialog">
            <div class="modal-content">
                <div class="modal-header">
-                   <h4 class="modal-title">Ubah Pengguna</h4>
+                   <h4 class="modal-title">Edit User</h4>
                </div>
                <div class="modal-body">
                    <div class="box-body">
                        <form action="<?php echo base_url('admin/proses_edit_user'); ?>" method="post" id="form_id">
                            <div class="form-group">
-                               <label for="username">Nama Pengguna</label>
+                               <label for="username">Username</label>
                                <input type="text" class="form-control form-control-sm" name="username" id="username" readonly>
                            </div>
                            <div class="form-group">
@@ -177,7 +177,7 @@
                                </select>
                            </div>
                            <div class="form-group">
-                           <label for="tgl_lahir">Tanggal Lahir</label>
+                           <label for="tgl_lahir">Tanggal lahir</label>
                            <input type="date" class="form-control" name="tanggal_lahir_lgn" id="tanggal_lahir_lgn" required>
                      </div>
                            <div class="form-group">

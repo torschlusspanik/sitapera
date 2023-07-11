@@ -65,7 +65,6 @@
                         <a class="collapse-item" href="<?php echo base_url('admin/history_permintaan'); ?>">Permintaan</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/laporan_utilitas'); ?>">Laporan Utilitas</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/laporan_alkes'); ?>">Laporan Alkes</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/test'); ?>">test</a>
                     </div>
                 </div>
             </li>
