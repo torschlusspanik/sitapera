@@ -30,6 +30,8 @@ CREATE TABLE `db_permintaan` (
   `id_db_permintaan` int(11) NOT NULL,
   `sess_id` int(11) NOT NULL,
   `tgl_permintaan` date NOT NULL,
+  `tgl_mulai` date NOT NULL,
+  `jam_mulai` time NOT NULL,
   `jam_permintaan` time NOT NULL,
   `tgl_selesai` date NOT NULL,
   `jam_selesai` time NOT NULL,
@@ -38,7 +40,12 @@ CREATE TABLE `db_permintaan` (
   `unit_kerja_id` int(11) NOT NULL,
   `petugas_id` int(11) NOT NULL,
   `kategori_id` int(11) NOT NULL,
-  `sub_kategori_id` int(11) NOT NULL
+  `sub_kategori_id` int(11) NOT NULL,
+  `signature` varchar(250) NOT NULL,
+  `signature_iprs` varchar(250) NOT NULL,
+  `signature_mengetahui` varchar(250) NOT NULL,
+  `hasil_kgt` varchar(250) NOT NULL,
+  `bhn_hasil` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
