@@ -23,6 +23,7 @@ class User extends CI_Controller
         $this->form_validation->set_rules('nama', 'Nama Lengkap', 'required|trim');
 
         if ($this->form_validation->run() == false) {
+            $data['judul'] = 'Si TAPERA | Sistem Informasi Permintaan Perbaikan Alat dan Sarana Prasarana';
             $data['title'] = 'Beranda';
             $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
             $user_id = $this->session->userdata('id_user');
@@ -78,6 +79,7 @@ class User extends CI_Controller
         $this->form_validation->set_rules('new_password2', 'Konfirm Password Baru', 'required|trim|min_length[3]|matches[new_password1]');
 
         if ($this->form_validation->run() == false) {
+            $data['judul'] = 'Si TAPERA | Sistem Informasi Permintaan Perbaikan Alat dan Sarana Prasarana';
             $data['title'] = 'Beranda';
             $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
             $user_id = $this->session->userdata('id_user');
@@ -107,6 +109,7 @@ class User extends CI_Controller
 
     public function detail_permintaan($id_db_permintaan)
     {
+        $data['judul'] = 'Si TAPERA | Sistem Informasi Permintaan Perbaikan Alat dan Sarana Prasarana';
         $data['title'] = 'Detail Pengajuan permintaan';
         $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
         $data['detail'] = $this->user->getInfoPermintaan($id_db_permintaan);
@@ -121,6 +124,7 @@ class User extends CI_Controller
     {
         $this->form_validation->set_rules('tgl_permintaan', 'Tanggal Permintaan', 'required|trim');
 
+        $data['judul'] = 'Si TAPERA | Sistem Informasi Permintaan Perbaikan Alat dan Sarana Prasarana';
             $data['title'] = 'Daftar Permintaan Terkirim ';
             $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
             $data['list_kategori'] = $this->db->get_where('kategori', ['id_kategori'])->result_array();
@@ -138,6 +142,7 @@ class User extends CI_Controller
             $this->form_validation->set_rules('tgl_permintaan', 'Tanggal Permintaan', 'required|trim');
     
             if ($this->form_validation->run() == FALSE) {
+                $data['judul'] = 'Si TAPERA | Sistem Informasi Permintaan Perbaikan Alat dan Sarana Prasarana';
                 $data['title'] = 'Permintaan perbaikan';
                 $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
                 $data['unit'] = $this->db->get_where('unit_kerja', ['status_unit' => 1])->result_array();
@@ -187,6 +192,7 @@ class User extends CI_Controller
         $this->form_validation->set_rules('tgl_permintaan', 'Tanggal Permintaan', 'required|trim');
 
        
+        $data['judul'] = 'Si TAPERA | Sistem Informasi Permintaan Perbaikan Alat dan Sarana Prasarana';
             $data['title'] = 'Daftar Permintaan Selesai ';
             $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
             $data['list_kategori'] = $this->db->get_where('kategori', ['id_kategori'])->result_array();
