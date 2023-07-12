@@ -156,12 +156,7 @@ class User extends CI_Controller
                 $this->load->view('user/data/permintaan', $data);
                 $this->load->view('templates/footer');
             } else {
-                $config['upload_path']   = './assets/signatures/';
-                $config['allowed_types'] = 'jpeg|jpg|png';
-                $config['max_size']      = 2024;
-                $this->load->library('upload', $config);
-                $this->upload->do_upload('signature');
-                $signatures = $this->upload->data('file_name');
+
 
                 $data = array(
                     'sess_id' => $this->session->userdata('id_user'),
@@ -171,7 +166,6 @@ class User extends CI_Controller
                     'kategori_id' => $this->input->post('kategori_id', true),
                     'sub_kategori_id' => $this->input->post('sub_kategori_id', true),
                     'urgas' => $this->input->post('urgas', true),
-                    'signature' => $signatures,
                     'status_db_permintaan' => 1
                 );
                 $this->db->insert('db_permintaan', $data);

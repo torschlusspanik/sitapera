@@ -236,7 +236,7 @@ class Admin extends CI_Controller
         $this->load->library('dompdf_gen');
 
         $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
-        $data['detail'] = $this->admin->getInfoPermintaan($id_db_dokumen);
+        $data['detail'] = $this->admin->getInfoPermintaan($id_db_permintaan);
         $this->load->view('admin/data/print' , $data);
 
         $paper_size = 'A4';
@@ -577,7 +577,6 @@ class Admin extends CI_Controller
                 'petugas_id' => $this->input->post('petugas_id', true),
                 'status_db_permintaan' => 2
             ];
-            $this->db->insert('db_permintaan', $data);
 
             $this->db->where('id_db_permintaan', $id_db_permintaan);
             $this->db->update('db_permintaan', $data);
@@ -622,7 +621,6 @@ class Admin extends CI_Controller
                     'bhn_hasil' => $this->input->post('bhn_hasil', true),
                     'status_db_permintaan' => 5
                 ];
-                $this->db->insert('db_permintaan', $data);
     
                 $this->db->where('id_db_permintaan', $id_db_permintaan);
                 $this->db->update('db_permintaan', $data);

@@ -49,24 +49,9 @@
                 <div class="col-md-12">
                     <div class="form-group">
                     <label>Uraian Tugas</label>
-                         <textarea class="form-control" name="urgas" rows="3"  ></textarea>
+                         <textarea class="form-control" name="urgas" rows="3" required  ></textarea>
                 </div>     
-                
-                <div class="row">
-                <div class="col-md-4">
-                     <div class="form-group">
-                        <label>Upload Scan Tanda Tangan</label>
-                            <input type="file" class="form-control-file" name="signature" required>
-                    </div>  
-                               </div> 
-                               </div>
-                               </div>
-                    <div class="text-muted mb-1">
-                           * Ekstensi file jpg, png, jpeg, dan pdf
-                           <br>
-                           * Ukuran file tidak lebih dari 5 MB
-                       </div>       
-                       </div>         
+                       
                        <hr>         
                        <div class="box-footer">
                            <button type="submit" class="btn btn-primary" >Simpan Data</button>

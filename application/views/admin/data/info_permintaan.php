@@ -231,7 +231,6 @@
                     <label>Pelaksana</label>
                            <select class="form-control form-control-sm" name="petugas_id" required>
                                <?php foreach ($petugas  as $petugas1 ) : ?>
-                                <option value="<?php echo $detail['petugas_id']; ?>" selected disabled hidden><?php echo $detail['nama_petugas']; ?></option>  
                                    <option value="<?php echo $petugas1['id_petugas']; ?>"><?php echo $petugas1['nama_petugas']; ?></option  required>
                                <?php endforeach; ?>
                            </select>
@@ -242,13 +241,13 @@
                 <div class="col-md-12">
                     <div class="form-group">
                     <label>Hasil Kegiatan Pelaksanaan Pekerjaan</label>
-                         <textarea class="form-control" name="hasil_kgt" rows="2"  ></textarea>
+                         <textarea class="form-control" name="hasil_kgt" rows="2" required  ></textarea>
                 </div>  
                  </div> 
                  <div class="col-md-12">
                     <div class="form-group">
                     <label>Bahan Hasil Pelaksanaan Pekerjaan</label>
-                         <textarea class="form-control" name="bhn_hasil" rows="2"  ></textarea>
+                         <textarea class="form-control" name="bhn_hasil" rows="2" required ></textarea>
                 </div>   
                 <hr>
                 <div class="col-md-12">
