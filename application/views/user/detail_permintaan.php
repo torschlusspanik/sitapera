@@ -29,7 +29,6 @@
                                    </tr>
                                    <tr>
                                    <tr>
-<<<<<<< HEAD
                                    <?php if ($detail['nama_unit'] == "") : ?>
                                             <td style="visibility:hidden;">
                                             <?php else : ?>
@@ -39,8 +38,6 @@
                                             <?php endif; ?>
                                             </tr>
                                    <tr>
-=======
->>>>>>> b317f729ffc62703f7ef682f8ed2ae6f5d235709
                                    <?php if ($detail['urgas'] == "") : ?>
                                             <td style="visibility:hidden;">
                                             <?php else : ?>
@@ -78,6 +75,9 @@
                                            </th>
                                        <?php elseif ($detail['status_db_permintaan'] == 2) : ?>
                                            <th class="text-primary"><i class="fas fa-hourglass-start"></i> Proses </th>
+                                           <?php elseif ($detail['status_db_permintaan'] == 7) : ?>
+                                           <th class="text-primary"><i class="fas fa-hourglass-start"></i> Menunggu Verifikasi </th>
+                                           <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#verifikasi">Verifikasi Selesai</button>
                                        <?php else : ?>
                                            <th class="text-success"><i class="fas fa-check-square"></i> Selesai</th>
                                        <?php endif; ?>
@@ -85,6 +85,44 @@
                                </table>
                                <div class="box-footer">
                                </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+
+   <div class="modal fade" id="verifikasi">
+       <div class="modal-dialog modal-lg">
+           <div class="modal-content">
+               <div class="modal-header">
+                   <h4 class="modal-title">Verifikasi Selesai</h4>
+               </div>
+               <div class="modal-body">
+                   <div class="box-body">
+                   <?php echo form_open_multipart('user/ubah_verifikasi/' . $detail['id_db_permintaan']); ?>
+                <br>
+                <input type="hidden" class="form-control form-control-sm" name="tgl_verif" value="<?php echo date('Y/m/d'); ?>">
+
+            <div class="row">
+                <div class="col-md-12">
+                     <div class="form-group">
+                        <label>Upload Scan Tanda Tangan Ka ruangan</label>
+                            <input type="file" class="form-control-file" name="signature" required>
+                    </div>  
+                    <div class="text-muted mb-1">
+                           * Ekstensi file jpg, png, dan jpeg
+                           <br>
+                           * Ukuran file tidak lebih dari 5 MB
+                       </div>    
+                               </div>   
+                       </div>         
+                       <hr>         
+                       <div class="box-footer">
+                           <button type="submit" class="btn btn-primary" >Simpan Data</button>
+                       </div>
+                       </form>
+                       <div class="box-footer">
                        </div>
                    </div>
                </div>

@@ -200,4 +200,45 @@ class User extends CI_Controller
             $this->load->view('templates/footer');
         
     }
+    public function ubah_verifikasi($id_db_permintaan)
+    {
+        {
+
+            $this->form_validation->set_rules('tgl_verif', 'Tanggal Verifikasi', 'required|trim');
+            if ($this->form_validation->run() == FALSE) {
+    
+                $data['judul'] = 'Si TAPERA | Sistem Informasi Permintaan Perbaikan Alat dan Sarana Prasarana';
+                $data['title'] = 'Selesaikan Permintaan';
+                $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
+                $data['detail'] = $this->user->getInfoPermintaan($id_db_permintaan);
+                
+                
+                $this->load->view('templates/header', $data);
+                $this->load->view('templates/sidebar_user', $data);
+                $this->load->view('templates/topbar', $data);
+                $this->load->view('user/detail_permintaan', $data);
+                $this->load->view('templates/footer');
+            } else {
+                $config['upload_path']   = './assets/signatures/';
+                $config['allowed_types'] = 'jpeg|jpg|png';
+                $config['max_size']      = 2024;
+                $this->load->library('upload', $config);
+                $this->upload->do_upload('signature');
+                $signature = $this->upload->data('file_name');
+    
+                $data = [
+                    'tgl_verif' => $this->input->post('tgl_verif', true),
+                    'signature' => $signature,
+                    'status_db_permintaan' => 5
+                ];
+    
+                $this->db->where('id_db_permintaan', $id_db_permintaan);
+                $this->db->update('db_permintaan', $data);
+    
+    
+                $this->session->set_flashdata('message', 'Simpan Perubahan');
+                redirect('user/detail_permintaan/' . $id_db_permintaan);
+            }
+        }
+    }
 }

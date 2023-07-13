@@ -211,15 +211,13 @@ class Admin extends CI_Controller
     }
 
  
-    public function print2($id_db_dokumen)
+    public function print_selesai($id_db_permintaan)
     {
         $this->load->library('dompdf_gen');
 
         $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
-        $data['detail'] = $this->admin->getInfoDokumen($id_db_dokumen);
-        $data['kepdes'] = $this->db->get_where('profile_desa', ['penanggung_jawab'])->row_array();
-        $tgl_respon = date('Y/m/d');
-        $this->load->view('admin/data/print' , $data);
+        $data['detail'] = $this->admin->getInfoPermintaan($id_db_permintaan);
+        $this->load->view('admin/data/print_selesai' , $data);
 
         $paper_size = 'A4';
         $orientation ='portrait';
@@ -619,7 +617,7 @@ class Admin extends CI_Controller
                     'petugas_id' => $this->input->post('petugas_id', true),
                     'hasil_kgt' => $this->input->post('hasil_kgt', true),
                     'bhn_hasil' => $this->input->post('bhn_hasil', true),
-                    'status_db_permintaan' => 5
+                    'status_db_permintaan' => 7
                 ];
     
                 $this->db->where('id_db_permintaan', $id_db_permintaan);

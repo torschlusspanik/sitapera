@@ -43,6 +43,15 @@
                                            <a href="<?php echo base_url('admin/info_permintaan/' . $lu['id_db_permintaan']); ?>" class="tombol-edit btn btn-info "><i class="fas fa-edit"></i></a>
                                           </td>
                                            
+                                          <?php elseif ($lu['status_db_permintaan'] == 7) : ?>
+                                           <td><?php echo $i++; ?></td>
+                                           <td><?php echo format_indo($lu['tgl_permintaan']); ?></td>
+                                           <td><?php echo $lu['nama_kategori']; ?></td>
+                                           <td><?php echo $lu['nama_unit']; ?></td>
+                                           <td class="text-center text-info font-weight-bolder">Menunggu Verifikasi</td>
+                                           <td>
+                                           <a href="<?php echo base_url('admin/info_permintaan/' . $lu['id_db_permintaan']); ?>" class="tombol-edit btn btn-info "><i class="fas fa-edit"></i></a>
+                                          </td>
                                            <?php else : ?>
                                            
                                            <?php endif; ?>

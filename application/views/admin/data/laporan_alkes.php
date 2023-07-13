@@ -23,6 +23,7 @@
                                    <th>No</th>
                                    <th>Tanggal</th>
                                    <th>Unit Kerja</th>
+                                   <th>Perbaikan</th>
                                    <th>Alat Status Perbaikan</th>
                                </thead>
                                <tbody>
@@ -34,6 +35,7 @@
                                            <td><?php echo $i++; ?></td>
                                            <td><?php echo format_indo($lu['tgl_permintaan']); ?></td>
                                            <td><?php echo $lu['nama_unit']; ?></td>
+                                           <td><?php echo $lu['nama_sub_kategori']; ?></td>
                                            <td><?php echo "alat status perbaikan template" ?></td>
                                        </tr>
                                        <?php endif; ?>

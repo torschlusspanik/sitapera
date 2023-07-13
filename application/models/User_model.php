@@ -32,16 +32,6 @@ class User_model extends CI_model
                   ";
         return $this->db->query($query)->result_array();
     }
-    public function getInfoDokumen($id_db_dokumen)
-    {
-        $query = "SELECT *
-                  FROM db_dokumen
-                  LEFT JOIN dokumen
-                  ON dokumen.id_dokumen = db_dokumen.dokumen_id
-                  WHERE db_dokumen.id_db_dokumen = $id_db_dokumen
-                  ";
-        return $this->db->query($query)->row_array();
-    }
     public function getInfoPermintaan($id_db_permintaan)
     {
         $query = "SELECT *

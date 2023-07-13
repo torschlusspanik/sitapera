@@ -109,9 +109,12 @@
                                        <?php elseif ($detail['status_db_permintaan'] == 2) : ?>
                                            <th class="text-primary"><i class="fas fa-hourglass-start"></i> Proses </th>
                                            <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#selesai">Selesaikan Permintaan</button>
+                                           <?php elseif ($detail['status_db_permintaan'] == 7) : ?>
+                                           <th class="text-primary"><i class="fas fa-share"></i> Menunggu Verifikasi </th>
+                                           <a href="<?php echo base_url('admin/print/' . $detail['id_db_permintaan']); ?>" class="tombol-edit btn btn-danger "><i class="fas fa-print"></i> Cetak Permintaan</a>
                                        <?php else : ?>
                                            <th class="text-success"><i class="fas fa-check-square"></i> Selesai</th>
-                                           <a href="<?php echo base_url('admin/print/' . $detail['id_db_permintaan']); ?>" class="tombol-edit btn btn-danger "><i class="fas fa-print"></i> Cetak Permintaan</a>
+                                           <a href="<?php echo base_url('admin/print_selesai/' . $detail['id_db_permintaan']); ?>" class="tombol-edit btn btn-danger "><i class="fas fa-print"></i> Cetak Permintaan</a>
                                        <?php endif; ?>
                                        
 
