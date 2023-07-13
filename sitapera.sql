@@ -51,18 +51,6 @@ CREATE TABLE `db_permintaan` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dokumen`
---
-
-CREATE TABLE `dokumen` (
-  `id_dokumen` int(100) NOT NULL,
-  `nama_dokumen` varchar(250) NOT NULL,
-  `status_dokumen` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `kategori`
 --
 
@@ -244,12 +232,6 @@ ALTER TABLE `db_permintaan`
   ADD PRIMARY KEY (`id_db_permintaan`);
 
 --
--- Indexes for table `dokumen`
---
-ALTER TABLE `dokumen`
-  ADD PRIMARY KEY (`id_dokumen`);
-
---
 -- Indexes for table `kategori`
 --
 ALTER TABLE `kategori`
@@ -288,11 +270,6 @@ ALTER TABLE `user_login`
 --
 ALTER TABLE `db_permintaan`
   MODIFY `id_db_permintaan` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `dokumen`
---
-ALTER TABLE `dokumen`
-  MODIFY `id_dokumen` int(100) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `kategori`
 --
