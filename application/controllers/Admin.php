@@ -212,7 +212,7 @@ class Admin extends CI_Controller
  
     public function print_selesai($id_db_permintaan)
     {
-        $this->load->library('dompdf_gen');
+        $this->load->library('Dompdf_gen');
 
         $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
         $data['detail'] = $this->admin->getInfoPermintaan($id_db_permintaan);
@@ -230,7 +230,7 @@ class Admin extends CI_Controller
     }
     public function print($id_db_permintaan)
     {
-        $this->load->library('dompdf_gen');
+        $this->load->library('Dompdf_gen');
 
         $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
         $data['detail'] = $this->admin->getInfoPermintaan($id_db_permintaan);

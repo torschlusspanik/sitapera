@@ -428,7 +428,7 @@ else if ( !function_exists("__autoload") ) {
    *
    * @param string $class
    */
-  function spl_autoload_register($class) {
+  function __autoload($class) {
     DOMPDF_autoload($class);
   }
 }
