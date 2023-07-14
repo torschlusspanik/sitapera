@@ -108,6 +108,8 @@ class Admin_model extends CI_model
                   ON kategori.id_kategori = db_permintaan.kategori_id
                   LEFT JOIN unit_kerja
                   ON unit_kerja.id_unit = db_permintaan.unit_kerja_id
+                  LEFT JOIN sub_kategori
+                  ON sub_kategori.id_sub_kategori = db_permintaan.sub_kategori_id
                   ORDER BY tgl_permintaan DESC
                   "
                   ;
@@ -167,7 +169,7 @@ class Admin_model extends CI_model
                      WHERE db_permintaan.id_db_permintaan = $id_db_permintaan
                      ";
     }
-    public function getFilterPermintaan($tgl_awal, $tgl_akhir)
+    public function getFilterPermintaan($tgl_awal, $tgl_akhir, $kategori)
     {
         $query = "SELECT *
                   FROM db_permintaan
@@ -177,7 +179,9 @@ class Admin_model extends CI_model
                   ON unit_kerja.id_unit = db_permintaan.unit_kerja_id
                   LEFT JOIN petugas
                   ON petugas.id_petugas = db_permintaan.petugas_id
-				  WHERE tgl_permintaan between '$tgl_awal' and '$tgl_akhir'
+                  LEFT JOIN sub_kategori
+                  ON sub_kategori.id_sub_kategori = db_permintaan.sub_kategori_id
+				  WHERE tgl_permintaan between '$tgl_awal' and '$tgl_akhir' 
 			      ";
         return $this->db->query($query)->result_array();
     }

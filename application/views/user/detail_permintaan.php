@@ -46,6 +46,22 @@
                                             <th><?php echo $detail['urgas']; ?></th>
                                             <?php endif; ?>
                                             </tr>
+                                            <?php if ($detail['tgl_mulai'] == "0000-00-00") : ?>
+                                            <td style="visibility:hidden;">
+                                            <?php else : ?>
+                                            <th>Tanggal Mulai </th>
+                                            <th> : </th>
+                                            <th><?php echo format_indo($detail['tgl_mulai']); ?></th>
+                                            <?php endif; ?>
+                                            </tr>
+                                            <?php if ($detail['jam_mulai'] == "00:00:00") : ?>
+                                            <td style="visibility:hidden;">
+                                            <?php else : ?>
+                                            <th>Jam Mulai </th>
+                                            <th> : </th>
+                                            <th><?php echo $detail['jam_mulai']; ?></th>
+                                            <?php endif; ?>
+                                            <tr>
                                    <?php if ($detail['tgl_selesai'] == "0000-00-00") : ?>
                                             <td style="visibility:hidden;">
                                             <?php else : ?>
