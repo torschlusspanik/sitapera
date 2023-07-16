@@ -13,13 +13,20 @@
                            <input type="date" class="form-control form-control-sm mb-2 mr-sm-2" name="tgl_awal" required>
                            <label class="mb-2 mr-sm-2"> - </label>
                            <input type="date" class="form-control form-control-sm mb-2 mr-sm-2" name="tgl_akhir" required>
+                           <label>Kategori Perbaikan</label>
+                           <select class="form-control form-control-sm" name="kategori_id" required>
+                               <?php foreach ($kategori as $kategori1) : ?>
+                                <option value="" selected disabled hidden>- Pilih -</option>  
+                                   <option value="<?php echo $kategori1['id_kategori']; ?>"><?php echo $kategori1['nama_kategori']; ?></option  required>
+                               <?php endforeach; ?>
+                           </select>
                            <button type="submit" class="btn btn-primary btn-sm mb-2">Submit</button>
                        </form>
                    </div>
                    <div class="card-body">
                        <div class="table-responsive">
                            <table class="table table-bordered" id="table-table" style="font-size:13px;">
-                               <thead>
+                           <thead>
                                    <th>No</th>
                                    <th>Tanggal</th>
                                    <th>Unit Kerja</th>
@@ -43,11 +50,10 @@
                                            <?php else : ?>
                                                <td>Selesai</td>
                                            <?php endif; ?>
-                                           <td>
                                        </tr>
                                        <?php endif; ?>
                                    <?php endforeach; ?>
-                               </tbody>
+                                   </tbody>
                            </table>
                        </div>
                    </div>

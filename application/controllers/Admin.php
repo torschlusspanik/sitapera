@@ -705,8 +705,9 @@ class Admin extends CI_Controller
         $tgl_awal = $this->input->post('tgl_awal');
         $tgl_akhir = $this->input->post('tgl_akhir');
         $kategori = $this->input->post('kategori_id');
+        $data['kategori'] = $this->db->get_where('kategori', ['id_kategori'])->result_array();
         $data['filter'] = $this->admin->getFilterPermintaan($tgl_awal, $tgl_akhir, $kategori);
-        $data['title'] = 'Laporan Utilitas Periode ' . format_indo($tgl_awal) . ' - ' . format_indo($tgl_akhir) . ' - ' . $kategori;
+        $data['title'] = 'Laporan Utilitas Periode ' . format_indo($tgl_awal) . ' - ' . format_indo($tgl_akhir);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar_admin', $data);
@@ -720,7 +721,9 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
         $tgl_awal = $this->input->post('tgl_awal');
         $tgl_akhir = $this->input->post('tgl_akhir');
-        $data['filter'] = $this->admin->getFilterPermintaan($tgl_awal, $tgl_akhir);
+        $kategori = $this->input->post('kategori_id');
+        $data['kategori'] = $this->db->get_where('kategori', ['id_kategori'])->result_array();
+        $data['filter'] = $this->admin->getFilterPermintaan($tgl_awal, $tgl_akhir, $kategori);
         $data['title'] = 'Laporan Alat Kesehatan Periode ' . format_indo($tgl_awal) . ' - ' . format_indo($tgl_akhir);
 
         $this->load->view('templates/header', $data);
@@ -735,7 +738,9 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
         $tgl_awal = $this->input->post('tgl_awal');
         $tgl_akhir = $this->input->post('tgl_akhir');
-        $data['filter'] = $this->admin->getFilterPermintaan($tgl_awal, $tgl_akhir);
+        $data['kategori'] = $this->db->get_where('kategori', ['id_kategori'])->result_array();
+        $kategori = $this->input->post('kategori_id');
+        $data['filter'] = $this->admin->getFilterPermintaan($tgl_awal, $tgl_akhir,$kategori);
         $data['history'] = $this->admin->getPermintaanMasukReport();
         $data['title'] = 'Laporan Alat Kesehatan ' . date('d - M - Y') . '';
 
@@ -753,8 +758,8 @@ class Admin extends CI_Controller
         $tgl_akhir = $this->input->post('tgl_akhir');
         $data['kategori'] = $this->db->get_where('kategori', ['id_kategori'])->result_array();
         $kategori = $this->input->post('kategori_id');
-        $data['filter'] = $this->admin->getFilterPermintaan($tgl_awal, $tgl_akhir, $kategori);
         $data['history'] = $this->admin->getPermintaanMasukReport();
+        $data['filter'] = $this->admin->getFilterPermintaan($tgl_awal, $tgl_akhir, $kategori);
         $data['title'] = 'Laporan Utilitas ' . date('d - M - Y') . '';
 
         $this->load->view('templates/header', $data);
