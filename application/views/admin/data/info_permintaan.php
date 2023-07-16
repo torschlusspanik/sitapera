@@ -178,7 +178,7 @@
                 <div class="col-md-12">
                      <div class="form-group">
                         <label>Upload Scan Tanda Tangan Disposisi Kepala</label>
-                            <input type="file" class="form-control-file" name="signature_iprs" required>
+                            <input type="file" class="form-control-file" name="signature_iprs" >
                     </div>  
                     <div class="text-muted mb-1">
                            * Ekstensi file jpg, png, dan jpeg
@@ -240,7 +240,7 @@
                     </div>
                 </div>
                 <hr>
-                
+                               </div>
                 <div class="col-md-12">
                     <div class="form-group">
                     <label>Hasil Kegiatan Pelaksanaan Pekerjaan</label>
@@ -253,18 +253,32 @@
                          <textarea class="form-control" name="bhn_hasil" rows="2" required ></textarea>
                 </div>   
                 <hr>
-                <div class="col-md-12">
-                     <div class="form-group">
-                        <label>Upload Scan Tanda Tangan Mengetahui</label>
-                            <input type="file" class="form-control-file" name="signature_mengetahui" required>
-                    </div>  
-                    <div class="text-muted mb-1">
+
+                
+                <div class="row">
+
+                    <div class="col-md-6">
+                    <div class="form-group">
+                    <label>Upload Scan Tanda Tangan Disposisi Kepala</label>
+                    <input type="file" class="form-control-file" name="signature_iprs" required >
+        </div>
+    </div>
+                    <div class="col-md-6">
+                    <div class="form-group">
+                    <label>Upload Scan Tanda Tangan Mengetahui</label>
+                    <input type="file" class="form-control-file" name="signature_mengetahui" required >
+        </div>
+    </div>
+    <div class="text-muted mb-1">
                            * Ekstensi file jpg, png, dan jpeg
                            <br>
                            * Ukuran file tidak lebih dari 5 MB
                        </div>    
-                               </div>   
-                       </div>         
+                    
+                               </div>  
+                               </div>  
+                               </div>      
+           
                        <hr>         
                        <div class="box-footer">
                            <button type="submit" class="btn btn-primary" >Simpan Data</button>

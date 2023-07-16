@@ -227,7 +227,7 @@ class User extends CI_Controller
                 $signature = $this->upload->data('file_name');
     
                 $data = [
-                    'tgl_verif' => $this->input->post('tgl_verif', true),
+                    'tgl_verif' => date('Y/m/d'),
                     'signature' => $signature,
                     'status_db_permintaan' => 5
                 ];

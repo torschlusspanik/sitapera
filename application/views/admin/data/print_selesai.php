@@ -48,7 +48,6 @@ h1{
 <p><strong>DISPOSISI KA IPRS</strong></p>
 <p>&nbsp;</p>
 <p><img src="<?php echo ('assets/signature_iprs/' . $detail['signature_iprs']); ?>" width="70px" height="70px"></p>
-<p>&nbsp;</p>
 </td>
 <td style="width: 50% text-align: center;">
 <p><strong>WAKTU</strong></p>
@@ -63,7 +62,6 @@ h1{
 <p style="text-align: left;"><strong>Jombang,</strong></p>
 <p><strong>Disetujui</strong></p>
 <p><strong>Ka. Ruang/Poli/Instalasi/Bagian</strong></p>
-<p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;<img src="<?php echo ('assets/signatures/' . $detail['signature']); ?>" width="70px" height="70px"></p>
 </td>
@@ -82,8 +80,6 @@ h1{
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><strong><img src="<?php echo ('assets/signature_mengetahui/' . $detail['signature_mengetahui']); ?>" width="70px" height="70px"></strong></p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
 </td>
 </tr>
 </table>

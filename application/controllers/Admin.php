@@ -15,8 +15,7 @@ class Admin extends CI_Controller
         $this->load->helper('tanggal');
         $this->load->helper(array('url', 'download'));
         $this->load->model('Admin_model', 'admin');
-    }
-
+    } 
     public function index()
     {
         $this->form_validation->set_rules('nama', 'Nama Lengkap', 'required|trim');
@@ -606,14 +605,23 @@ class Admin extends CI_Controller
                 $config['upload_path']   = './assets/signature_mengetahui/';
                 $config['allowed_types'] = 'jpeg|jpg|png';
                 $config['max_size']      = 2024;
+                $this->load->library('upload', $config , 'upload_mengetahui');
+                $this->upload_mengetahui->do_upload('signature_mengetahui');
+                $signature_mengetahui = $this->upload_mengetahui->data('file_name');
+
+                $config['upload_path']   = './assets/signature_iprs/';
+                $config['allowed_types'] = 'jpeg|jpg|png';
+                $config['max_size']      = 2024;
                 $this->load->library('upload', $config);
-                $this->upload->do_upload('signature_mengetahui');
-                $signature_mengetahui = $this->upload->data('file_name');
+                $this->upload->do_upload('signature_iprs');
+                $signature_iprs = $this->upload->data('file_name');
+
     
                 $data = [
                     'tgl_selesai' => $this->input->post('tgl_selesai', true),
                     'jam_selesai' => $this->input->post('jam_selesai', true),
                     'signature_mengetahui' => $signature_mengetahui,
+                    'signature_iprs' => $signature_iprs,
                     'petugas_id' => $this->input->post('petugas_id', true),
                     'hasil_kgt' => $this->input->post('hasil_kgt', true),
                     'bhn_hasil' => $this->input->post('bhn_hasil', true),
@@ -696,7 +704,9 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
         $tgl_awal = $this->input->post('tgl_awal');
         $tgl_akhir = $this->input->post('tgl_akhir');
-        $data['filter'] = $this->admin->getFilterPermintaan($tgl_awal, $tgl_akhir);
+        $kategori = $this->input->post('kategori_id');
+        $data['kategori'] = $this->db->get_where('kategori', ['id_kategori'])->result_array();
+        $data['filter'] = $this->admin->getFilterPermintaan($tgl_awal, $tgl_akhir, $kategori);
         $data['title'] = 'Laporan Utilitas Periode ' . format_indo($tgl_awal) . ' - ' . format_indo($tgl_akhir);
 
         $this->load->view('templates/header', $data);
@@ -711,7 +721,9 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
         $tgl_awal = $this->input->post('tgl_awal');
         $tgl_akhir = $this->input->post('tgl_akhir');
-        $data['filter'] = $this->admin->getFilterPermintaan($tgl_awal, $tgl_akhir);
+        $kategori = $this->input->post('kategori_id');
+        $data['kategori'] = $this->db->get_where('kategori', ['id_kategori'])->result_array();
+        $data['filter'] = $this->admin->getFilterPermintaan($tgl_awal, $tgl_akhir, $kategori);
         $data['title'] = 'Laporan Alat Kesehatan Periode ' . format_indo($tgl_awal) . ' - ' . format_indo($tgl_akhir);
 
         $this->load->view('templates/header', $data);
@@ -726,7 +738,9 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
         $tgl_awal = $this->input->post('tgl_awal');
         $tgl_akhir = $this->input->post('tgl_akhir');
-        $data['filter'] = $this->admin->getFilterPermintaan($tgl_awal, $tgl_akhir);
+        $data['kategori'] = $this->db->get_where('kategori', ['id_kategori'])->result_array();
+        $kategori = $this->input->post('kategori_id');
+        $data['filter'] = $this->admin->getFilterPermintaan($tgl_awal, $tgl_akhir,$kategori);
         $data['history'] = $this->admin->getPermintaanMasukReport();
         $data['title'] = 'Laporan Alat Kesehatan ' . date('d - M - Y') . '';
 
@@ -742,8 +756,10 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
         $tgl_awal = $this->input->post('tgl_awal');
         $tgl_akhir = $this->input->post('tgl_akhir');
-        $data['filter'] = $this->admin->getFilterPermintaan($tgl_awal, $tgl_akhir);
+        $data['kategori'] = $this->db->get_where('kategori', ['id_kategori'])->result_array();
+        $kategori = $this->input->post('kategori_id');
         $data['history'] = $this->admin->getPermintaanMasukReport();
+        $data['filter'] = $this->admin->getFilterPermintaan($tgl_awal, $tgl_akhir, $kategori);
         $data['title'] = 'Laporan Utilitas ' . date('d - M - Y') . '';
 
         $this->load->view('templates/header', $data);
