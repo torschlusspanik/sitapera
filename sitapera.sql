@@ -31,6 +31,7 @@ CREATE TABLE `db_permintaan` (
   `sess_id` int(11) NOT NULL,
   `tgl_permintaan` date NOT NULL,
   `tgl_mulai` date NOT NULL,
+  `tgl_verif` date NOT NULL,
   `jam_mulai` time NOT NULL,
   `jam_permintaan` time NOT NULL,
   `tgl_selesai` date NOT NULL,
