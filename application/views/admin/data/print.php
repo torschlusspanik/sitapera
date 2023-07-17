@@ -47,7 +47,11 @@ h1{
 <td style="width: 40% text-align: center;">
 <p><strong>DISPOSISI KA IPRS</strong></p>
 <p>&nbsp;</p>
-<p><img src="<?php echo ('assets/signature_iprs/' . $detail['signature_iprs']); ?>" width="70px" height="70px"></p>
+<?php if ($detail['signature_iprs'] == "") : ?>
+	<p> &nbsp;</p>
+    <?php else : ?>
+	<p><strong><img src="<?php echo ('assets/signature_iprs/' . $detail['signature_iprs']); ?>" width="70px" height="70px"></strong></p>
+    <?php endif; ?>
 <p>&nbsp;</p>
 </td>
 <td style="width: 50% text-align: center;">
@@ -81,7 +85,11 @@ h1{
 <p><strong>Pekerjaan Selesai Mengetahui</strong></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p><strong><img src="<?php echo ('assets/signature_mengetahui/' . $detail['signature_mengetahui']); ?>" width="70px" height="70px"></strong></p>
+<?php if ($detail['signature_mengetahui'] == "") : ?>
+	<p> &nbsp;</p>
+    <?php else : ?>
+	<p><strong><img src="<?php echo ('assets/signature_mengetahui/' . $detail['signature_mengetahui']); ?>" width="70px" height="70px"></strong></p>
+    <?php endif; ?>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 </td>

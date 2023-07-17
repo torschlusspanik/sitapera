@@ -260,13 +260,13 @@
                     <div class="col-md-6">
                     <div class="form-group">
                     <label>Upload Scan Tanda Tangan Disposisi Kepala</label>
-                    <input type="file" class="form-control-file" name="signature_iprs" required >
+                    <input type="file" class="form-control-file" name="signature_iprs"  >
         </div>
     </div>
                     <div class="col-md-6">
                     <div class="form-group">
                     <label>Upload Scan Tanda Tangan Mengetahui</label>
-                    <input type="file" class="form-control-file" name="signature_mengetahui" required >
+                    <input type="file" class="form-control-file" name="signature_mengetahui"  >
         </div>
     </div>
     <div class="text-muted mb-1">

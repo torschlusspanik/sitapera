@@ -181,7 +181,23 @@ class Admin_model extends CI_model
                   ON petugas.id_petugas = db_permintaan.petugas_id
                   LEFT JOIN sub_kategori
                   ON sub_kategori.id_sub_kategori = db_permintaan.sub_kategori_id
-				  WHERE tgl_permintaan between '$tgl_awal' and '$tgl_akhir'  and kategori_id = '$kategori' 
+				  WHERE tgl_permintaan between '$tgl_awal' and '$tgl_akhir'  AND kategori_id = '$kategori' OR tgl_permintaan between '$tgl_awal' and '$tgl_akhir' and'$kategori' = 0
+			      ";
+        return $this->db->query($query)->result_array();
+    }
+    public function getFilterPermintaan2($tgl_awal, $tgl_akhir)
+    {
+        $query = "SELECT *
+                  FROM db_permintaan
+                  LEFT JOIN kategori
+                  ON kategori.id_kategori = db_permintaan.kategori_id
+                  LEFT JOIN unit_kerja
+                  ON unit_kerja.id_unit = db_permintaan.unit_kerja_id
+                  LEFT JOIN petugas
+                  ON petugas.id_petugas = db_permintaan.petugas_id
+                  LEFT JOIN sub_kategori
+                  ON sub_kategori.id_sub_kategori = db_permintaan.sub_kategori_id
+				  WHERE tgl_permintaan between '$tgl_awal' and '$tgl_akhir'
 			      ";
         return $this->db->query($query)->result_array();
     }

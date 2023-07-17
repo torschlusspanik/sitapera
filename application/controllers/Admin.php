@@ -198,7 +198,7 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
         $tgl_awal = $this->input->post('tgl_awal');
         $tgl_akhir = $this->input->post('tgl_akhir');
-        $data['history2'] = $this->admin->getFilterPermintaan($tgl_awal, $tgl_akhir);
+        $data['history2'] = $this->admin->getFilterPermintaan2($tgl_awal, $tgl_akhir);
         $data['title'] = 'Periode History ' . format_indo($tgl_awal) . ' - ' . format_indo($tgl_akhir);
 
 
