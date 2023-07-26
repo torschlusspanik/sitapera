@@ -13,7 +13,6 @@
                            <input type="date" class="form-control form-control-sm mb-2 mr-sm-2" name="tgl_awal" required>
                            <label class="mb-2 mr-sm-2"> - </label>
                            <input type="date" class="form-control form-control-sm mb-2 mr-sm-2" name="tgl_akhir" required>
-                           <label>Kategori Perbaikan</label>
                            <select class="form-control form-control-sm-2" name="kategori_id" required>
                            <option value ="0"> Semua Kategori </option>
                                <?php foreach ($kategori as $kategori1) : ?>
@@ -21,7 +20,8 @@
                                    <option value="<?php echo $kategori1['id_kategori']; ?>"><?php echo $kategori1['nama_kategori']; ?></option  >
                                <?php endforeach; ?>
                            </select>
-                           <button type="submit" class="btn btn-primary btn-sm mb-2">Submit</button>
+                           <label class="mb-2 mr-sm-2"> </label>
+                           <button type="submit" class="btn btn-primary btn-sm mb-2">Tampilkan</button>
                        </form>
                    </div>
                    <div class="card-body">
