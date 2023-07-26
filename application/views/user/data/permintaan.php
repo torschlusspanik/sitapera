@@ -48,8 +48,8 @@
 
                 <div class="col-md-12">
                     <div class="form-group">
-                    <label>Uraian Tugas</label>
-                         <textarea class="form-control" name="urgas" rows="3" required  ></textarea>
+                    <label>Keterangan Tambahan</label>
+                         <textarea class="form-control" name="urgas" rows="3" required placeholder="Tuliskan detail kerusakan atau detail unit kerja atau sub kategori yang belum ada! Contoh: Kaki meja patah satu, meja kedua dari depan tempat standby sekuriti (belum ada sub kategori perbaikan meja). Tolong ditindaklanjuti. Terima kasih."></textarea>
                 </div>     
                        
                        <hr>         
