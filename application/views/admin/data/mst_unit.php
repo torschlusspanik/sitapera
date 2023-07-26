@@ -1,15 +1,16 @@
    <!-- Begin Page Content -->
    <div class="container-fluid">
        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-           <h2 class="h4 mb-0 text-gray-800"><?php echo $title; ?></h2>
+           <h2 class="h4 mb-0 text-gray-800"><b>Master Unit Kerja</b>
+           <!-- <?php echo $title; ?> --></h2>
            <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
-           <button type="button" class="btn btn-light btn-sm" onclick="window.history.back()">Kembali</button>
+           <button type="button" class="btn btn-dark btn-sm" onclick="window.history.back()">Kembali</button>
        </div>
        <div class="row">
            <div class="col-xl-12 col-lg-5">
                <div class="card shadow mb-4">
                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                       <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#add-user"><i class="fas fa-envelope"></i> <b>Tambah unit</b></button>
+                       <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#add-user"><i class="fas fa-envelope"></i> <b>Tambah Unit Kerja</b></button>
                    </div>
                    <div class="card-body">
                        <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
