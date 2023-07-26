@@ -24,17 +24,17 @@
                                        <th><?php echo $detail['nama_unit']; ?></th>
                                    </tr>
                                    <tr>
-                                       <th>Nama kategori</th>
+                                       <th>Kategori</th>
                                        <th> : </th>
                                        <th><?php echo $detail['nama_kategori']; ?></th>
                                    </tr>
                                    <tr>
-                                       <th>Tanggal permintaan</th>
+                                       <th>Tanggal Permintaan</th>
                                        <th> : </th>
                                        <th><?php echo format_indo($detail['tgl_permintaan']); ?></th>
                                    </tr>
                                    <tr>
-                                       <th>Jam permintaan</th>
+                                       <th>Jam Permintaan</th>
                                        <th> : </th>
                                        <th><?php echo ($detail['jam_permintaan']); ?></th>
                                    </tr>
