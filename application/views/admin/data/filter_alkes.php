@@ -31,7 +31,8 @@
                                    <th>No</th>
                                    <th>Tanggal</th>
                                    <th>Unit Kerja</th>
-                                   <th>Alat Status Perbaikan</th>
+                                   <th>Perbaikan</th>
+                                   <th>Status</th>
                                </thead>
                                <tbody>
                                    <?php $i = 1; ?>
@@ -42,7 +43,14 @@
                                            <td><?php echo $i++; ?></td>
                                            <td><?php echo format_indo($lu['tgl_permintaan']); ?></td>
                                            <td><?php echo $lu['nama_unit']; ?></td>
-                                           <td><?php echo "alat status perbaikan template" ?></td>
+                                           <td><?php echo $lu['nama_sub_kategori']; ?></td>
+                                           <?php if ($lu['status_db_permintaan'] == 2) : ?>
+                                               <td>Proses</td>
+                                           <?php elseif ($lu['status_db_permintaan'] == 3) : ?>
+                                               <td>Tidak Lengkap</td>
+                                           <?php else : ?>
+                                               <td>Selesai</td>
+                                           <?php endif; ?>
                                        </tr>
                                        <?php endif; ?>
                                    <?php endforeach; ?>

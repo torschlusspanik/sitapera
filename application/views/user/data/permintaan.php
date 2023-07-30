@@ -25,7 +25,7 @@
                  <div class="col-md-6">
                     <div class="form-group">
                     <label>Kategori Perbaikan</label>
-                           <select class="form-control form-control-sm" name="kategori_id" required>
+                           <select class="form-control form-control-sm" name="kategori_id" id="kategori" required>
                                <?php foreach ($kategori as $kategori1) : ?>
                                 <option value="" selected disabled hidden>- Pilih -</option>  
                                    <option value="<?php echo $kategori1['id_kategori']; ?>"><?php echo $kategori1['nama_kategori']; ?></option  required>
@@ -33,11 +33,12 @@
                            </select>
                     </div>
                 </div>
+                <button type="button"> tes </button>
 
                 <div class="col-md-6">
                     <div class="form-group">
                     <label>Sub Kategori Perbaikan</label>
-                           <select class="form-control form-control-sm" name="sub_kategori_id" required>
+                           <select class="form-control form-control-sm" name="sub_kategori_id" id="sub_kateg" required>
                                <?php foreach ($sub_kategori as $sub_kategori1) : ?>
                                 <option value="" selected disabled hidden>- Pilih -</option>
                                    <option value="<?php echo $sub_kategori1['id_sub_kategori']; ?>"><?php echo $sub_kategori1['nama_sub_kategori']; ?></option>
@@ -57,3 +58,11 @@
                            <button type="submit" class="btn btn-primary" >Simpan Data</button>
                        </div>
                        </form>
+                       
+                       <script>
+                    $(document).ready(function(){
+                        $("button").click(function(){
+                            alert($("#kategori option:selected").text());
+                        });
+                    });
+                       </script>

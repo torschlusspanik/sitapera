@@ -84,6 +84,11 @@
                                        <th><?php echo $detail['nama_petugas']; ?></th>
                                    </tr>
                                    <tr>
+                                       <th>Uraian tugas</th>
+                                       <th> : </th>
+                                       <th><?php echo $detail['urgas']; ?></th>
+                                   </tr>
+                                   <tr>
                                        <th>Status</th>
                                        <th> : </th>
                                        <?php if ($detail['status_db_permintaan'] == 1) : ?>
@@ -124,7 +129,7 @@
                 <div class="col-md-12">
                      <div class="form-group">
                         <label>Upload Scan Tanda Tangan Ka ruangan</label>
-                            <input type="file" class="form-control-file" name="signature" required>
+                            <input type="file" class="form-control-file" name="signature" >
                     </div>  
                     <div class="text-muted mb-1">
                            * Ekstensi file jpg, png, dan jpeg
@@ -135,7 +140,7 @@
                        </div>         
                        <hr>         
                        <div class="box-footer">
-                           <button type="submit" class="btn btn-primary" >Simpan Data</button>
+                           <button type="submit" class="btn btn-primary" >Verifikasi</button>
                        </div>
                        </form>
                        <div class="box-footer">

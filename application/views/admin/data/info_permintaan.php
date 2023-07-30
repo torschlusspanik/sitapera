@@ -100,6 +100,11 @@
                                             <?php endif; ?>
                                             </tr>
                                    <tr>
+                                   <tr>
+                                       <th>Uraian tugas</th>
+                                       <th> : </th>
+                                       <th><?php echo $detail['urgas']; ?></th>
+                                   </tr>
                                        <th>Status</th>
                                        <th> : </th>
                                        <?php if ($detail['status_db_permintaan'] == 1) : ?>
