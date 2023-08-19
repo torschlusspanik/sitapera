@@ -418,6 +418,7 @@ class Admin extends CI_Controller
             $data['title'] = 'Manage Sub kategori';
             $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
             $data['sub_kategori'] = $this->db->get('sub_kategori')->result_array();
+            $data['kategori'] = $this->db->get_where('kategori', ['id_kategori'])->result_array();
 
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar_admin', $data);
@@ -427,6 +428,7 @@ class Admin extends CI_Controller
         } else {
             $data = array(
                 'nama_sub_kategori' => $this->input->post('nama_sub_kategori', true),
+                'kategori_sub_id' => $this->input->post('kategori_sub_id', true)
             );
             $this->db->insert('sub_kategori', $data);
             $this->session->set_flashdata('message', 'Tambah data');
@@ -444,8 +446,11 @@ class Admin extends CI_Controller
     {
         $id_sub_kategori = $this->input->post('id_sub_kategori');
         $nama_sub_kategori = $this->input->post('nama_sub_kategori');
+        $kategori_sub_id = $this->input->post('kategori_sub_id');
 
         $this->db->set('nama_sub_kategori', $nama_sub_kategori);
+        $this->db->set('kategori_sub_id', $kategori_sub_id);
+
 
         $this->db->where('id_sub_kategori', $id_sub_kategori);
         $this->db->update('sub_kategori');

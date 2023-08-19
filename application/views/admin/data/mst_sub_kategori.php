@@ -63,6 +63,14 @@
                                <label>Nama Sub Kategori</label>
                                <input type="text" class="form-control form-control-sm" name="nama_sub_kategori" required>
                            </div>
+                    <div class="form-group">
+                    <label>Pilih Kategori</label>
+                           <select class="form-control form-control-sm" name="kategori_sub_id" required>
+                               <?php foreach ($kategori as $kategori1) : ?>
+                                   <option value="<?php echo $kategori1['id_kategori']; ?>"><?php echo $kategori1['nama_kategori']; ?></option  required>
+                               <?php endforeach; ?>
+                           </select>
+                    </div>
                            <div class="box-footer">
                                <button type="submit" class="btn btn-primary">Simpan Data</button>
                                <button type="button" class="btn btn-info" data-dismiss="modal">Tutup</button>
@@ -89,6 +97,14 @@
                                <label>Nama Sub Kategori</label>
                                <input type="text" class="form-control form-control-sm" name="nama_sub_kategori" id="nama_sub_kategori" required>
                            </div>
+                           <div class="form-group">
+                    <label>Pilih Kategori</label>
+                           <select class="form-control form-control-sm" name="kategori_sub_id" id="kategori_sub_id" required>
+                               <?php foreach ($kategori as $kategori1) : ?>
+                                   <option value="<?php echo $kategori1['id_kategori']; ?>"><?php echo $kategori1['nama_kategori']; ?></option  required>
+                               <?php endforeach; ?>
+                           </select>
+                    </div>
                            <input type="hidden" name="id_sub_kategori" id="id_sub_kategori">
                            <div class="box-footer">
                                <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
@@ -116,6 +132,7 @@
                success: function(data) {
                    $('#nama_sub_kategori').val(data.nama_sub_kategori);
                    $('#id_sub_kategori').val(data.id_sub_kategori);
+                   $('#kategori_sub_id').val(data.kategori_sub_id);
                }
            });
        });

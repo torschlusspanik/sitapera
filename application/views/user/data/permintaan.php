@@ -25,7 +25,7 @@
                  <div class="col-md-6">
                     <div class="form-group">
                     <label>Kategori Perbaikan</label>
-                           <select class="form-control form-control-sm" name="kategori_id" id="kategori" required>
+                           <select class="form-control form-control-sm" name="kategori_id" id="select1" required>
                                <?php foreach ($kategori as $kategori1) : ?>
                                 <option value="" selected disabled hidden>- Pilih -</option>  
                                    <option value="<?php echo $kategori1['id_kategori']; ?>"><?php echo $kategori1['nama_kategori']; ?></option  required>
@@ -33,19 +33,17 @@
                            </select>
                     </div>
                 </div>
-                <button type="button"> tes </button>
-
                 <div class="col-md-6">
                     <div class="form-group">
                     <label>Sub Kategori Perbaikan</label>
-                           <select class="form-control form-control-sm" name="sub_kategori_id" id="sub_kateg" required>
+                           <select class="form-control form-control-sm" name="sub_kategori_id" id="select2" required>
                                <?php foreach ($sub_kategori as $sub_kategori1) : ?>
                                 <option value="" selected disabled hidden>- Pilih -</option>
-                                   <option value="<?php echo $sub_kategori1['id_sub_kategori']; ?>"><?php echo $sub_kategori1['nama_sub_kategori']; ?></option>
+                                   <option span="<?php echo  $sub_kategori1['kategori_sub_id']; ?>" value="<?php echo $sub_kategori1['id_sub_kategori']; ?>"><?php echo $sub_kategori1['nama_sub_kategori']; ?></option>
                                <?php endforeach; ?>
                            </select>
                     </div>
-                </div>
+                </div>                        
 
                 <div class="col-md-12">
                     <div class="form-group">
@@ -59,10 +57,21 @@
                        </div>
                        </form>
                        
+                       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
                        <script>
-                    $(document).ready(function(){
-                        $("button").click(function(){
-                            alert($("#kategori option:selected").text());
-                        });
-                    });
+$('#kategori').on('change', function(){
+  let selectedKategori = $('#kategori').val();
+  $('#selected').text(selectedKategori);
+});
+                       </script>
+                       <script>
+$("#select1").change(function() {
+  if ($(this).data('options') === undefined) {
+    /*Taking an array of all options-2 and kind of embedding it on the select1*/
+    $(this).data('options', $('#select2 option').clone());
+  }
+  var id = $(this).val();
+  var options = $(this).data('options').filter('[span=' + id + ']');
+  $('#select2').html(options);
+});
                        </script>

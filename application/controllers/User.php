@@ -147,7 +147,7 @@ class User extends CI_Controller
                 $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
                 $data['unit'] = $this->db->get_where('unit_kerja', ['status_unit' => 1])->result_array();
                 $data['kategori'] = $this->db->get_where('kategori', ['id_kategori'])->result_array();
-                $data['sub_kategori'] = $this->db->get_where('sub_kategori', ['id_sub_kategori'])->result_array();
+                $data['sub_kategori'] = $this->db->get_where('sub_kategori', ['kategori_sub_id'])->result_array();
                 $user_id = $this->session->userdata('id_user');
     
                 $this->load->view('templates/header', $data);
