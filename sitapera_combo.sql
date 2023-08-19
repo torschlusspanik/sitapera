@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Jul 2023 pada 10.11
+-- Waktu pembuatan: 19 Agu 2023 pada 12.35
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 7.4.27
 
@@ -55,7 +55,31 @@ CREATE TABLE `db_permintaan` (
 --
 
 INSERT INTO `db_permintaan` (`id_db_permintaan`, `sess_id`, `tgl_permintaan`, `tgl_mulai`, `tgl_verif`, `jam_mulai`, `jam_permintaan`, `tgl_selesai`, `jam_selesai`, `urgas`, `status_db_permintaan`, `unit_kerja_id`, `petugas_id`, `kategori_id`, `sub_kategori_id`, `signature`, `signature_iprs`, `signature_mengetahui`, `hasil_kgt`, `bhn_hasil`) VALUES
-(1, 55, '2023-07-13', '2023-06-30', '2023-07-13', '17:54:00', '02:54:25', '2023-07-21', '18:58:00', 'tes', 5, 11, 4, 2, 8, '12.PNG', '232.png', 'log.png', 'tes', 'tes');
+(1, 55, '2023-07-15', '2023-07-01', '2023-07-15', '00:12:00', '03:16:33', '2023-07-02', '07:19:00', 'a', 5, 4, 5, 1, 2, 'hasil1.jpg', 'xam1.png', 'xam.png', '12', '12'),
+(2, 55, '2023-07-15', '2023-07-30', '2023-07-15', '03:55:00', '03:50:13', '2023-07-29', '08:58:00', '2', 5, 5, 1, 3, 2, 'hd.png', '2321.png', '2321.png', 'aw', 'aw'),
+(3, 55, '2023-07-15', '2023-07-23', '2023-07-15', '04:04:00', '04:01:11', '2023-07-25', '04:06:00', 'ts', 5, 4, 5, 1, 1, 'hasil.jpg', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)1.jpg', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2).jpg', 'aw', 'aw'),
+(4, 55, '2023-07-15', '2023-07-30', '2023-07-15', '04:17:00', '04:12:36', '2023-07-31', '04:17:00', 'awa', 5, 6, 4, 3, 3, 'hd1.png', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)2.jpg', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)1.jpg', 'a', 'a'),
+(5, 55, '2023-07-15', '2023-07-30', '2023-07-15', '04:17:00', '04:12:36', '2023-07-31', '04:17:00', 'awa', 5, 6, 4, 3, 3, 'hd1.png', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)2.jpg', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)1.jpg', 'a', 'a'),
+(6, 55, '2023-07-15', '2023-07-30', '2023-07-15', '04:17:00', '04:12:36', '2023-07-31', '04:17:00', 'awa', 5, 6, 4, 3, 3, 'hd1.png', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)2.jpg', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)1.jpg', 'a', 'a'),
+(7, 55, '2023-07-15', '2023-07-30', '2023-07-15', '04:17:00', '04:12:36', '2023-07-31', '04:17:00', 'awa', 5, 6, 4, 3, 3, 'hd1.png', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)2.jpg', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)1.jpg', 'a', 'a'),
+(8, 55, '2023-07-15', '2023-07-30', '2023-07-15', '04:17:00', '04:12:36', '2023-07-31', '04:17:00', 'awa', 5, 6, 4, 3, 3, 'hd1.png', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)2.jpg', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)1.jpg', 'a', 'a'),
+(9, 55, '2023-07-15', '2023-07-30', '2023-07-15', '04:17:00', '04:12:36', '2023-07-31', '04:17:00', 'awa', 5, 6, 4, 3, 3, 'hd1.png', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)2.jpg', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)1.jpg', 'a', 'a'),
+(10, 55, '2023-07-15', '2023-07-30', '2023-07-15', '04:17:00', '04:12:36', '2023-07-31', '04:17:00', 'awa', 5, 6, 4, 3, 3, 'hd1.png', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)2.jpg', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)1.jpg', 'a', 'a'),
+(11, 55, '2023-07-15', '2023-07-30', '2023-07-15', '04:17:00', '04:12:36', '2023-07-31', '04:17:00', 'awa', 5, 6, 4, 3, 3, 'hd1.png', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)2.jpg', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)1.jpg', 'a', 'a'),
+(12, 55, '2023-07-15', '2023-07-30', '2023-07-15', '04:17:00', '04:12:36', '2023-07-31', '04:17:00', 'awa', 5, 6, 4, 3, 3, 'hd1.png', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)2.jpg', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)1.jpg', 'a', 'a'),
+(13, 55, '2023-07-15', '2023-07-30', '2023-07-15', '04:17:00', '04:12:36', '2023-07-31', '04:17:00', 'awa', 5, 6, 4, 3, 3, 'hd1.png', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)2.jpg', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)1.jpg', 'a', 'a'),
+(14, 55, '2023-07-15', '2023-07-30', '2023-07-15', '04:17:00', '04:12:36', '2023-07-31', '04:17:00', 'awa', 5, 6, 4, 3, 3, 'hd1.png', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)2.jpg', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)1.jpg', 'a', 'a'),
+(15, 55, '2023-07-15', '2023-07-30', '2023-07-15', '04:17:00', '04:12:36', '2023-07-31', '04:17:00', 'awa', 5, 6, 4, 3, 3, 'hd1.png', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)2.jpg', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)1.jpg', 'a', 'a'),
+(16, 55, '2023-07-15', '2023-07-30', '2023-07-15', '04:17:00', '04:12:36', '2023-07-31', '04:17:00', 'awa', 5, 6, 4, 3, 3, 'hd1.png', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)2.jpg', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)1.jpg', 'a', 'a'),
+(17, 55, '2023-07-15', '2023-07-30', '2023-07-15', '04:17:00', '04:12:36', '2023-07-31', '04:17:00', 'awa', 5, 6, 4, 3, 3, 'hd1.png', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)2.jpg', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)1.jpg', 'a', 'a'),
+(18, 55, '2023-07-15', '2023-07-30', '2023-07-15', '04:17:00', '04:12:36', '2023-07-31', '04:17:00', 'awa', 5, 6, 4, 3, 3, 'hd1.png', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)2.jpg', '3a1c67e8-064d-4f56-80eb-feced76cad3e_16919_(2)1.jpg', 'a', 'a'),
+(19, 55, '2023-07-17', '2023-07-21', '0000-00-00', '21:50:00', '09:46:20', '2023-07-23', '13:47:00', 'awe', 7, 2, 6, 3, 2, '', '', '', 'awe', 'awe'),
+(20, 55, '2023-07-19', '2023-07-19', '0000-00-00', '04:58:00', '04:57:22', '0000-00-00', '00:00:00', 'awe', 2, 2, 2, 2, 1, '', '', '', '', ''),
+(21, 55, '2023-07-19', '2023-07-21', '0000-00-00', '22:44:00', '07:00:26', '0000-00-00', '00:00:00', 'aass', 2, 4, 3, 2, 7, '', '', '', '', ''),
+(22, 55, '2023-07-20', '2023-07-22', '2023-07-31', '13:38:00', '10:37:55', '2023-07-28', '08:31:00', 'asd', 5, 3, 1, 3, 3, '', '', '', 'aw', 'aw'),
+(23, 55, '2023-08-19', '0000-00-00', '0000-00-00', '00:00:00', '04:15:35', '0000-00-00', '00:00:00', 'tes', 1, 4, 0, 1, 1, '', '', '', '', ''),
+(24, 55, '2023-08-19', '0000-00-00', '0000-00-00', '00:00:00', '04:25:35', '0000-00-00', '00:00:00', 'tes', 1, 6, 0, 1, 6, '', '', '', '', ''),
+(25, 55, '2023-08-19', '0000-00-00', '0000-00-00', '00:00:00', '04:28:07', '0000-00-00', '00:00:00', 'tes jquery', 1, 2, 0, 1, 6, '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -75,7 +99,8 @@ CREATE TABLE `kategori` (
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
 (1, 'Listrik'),
 (2, 'Bangunan'),
-(3, 'Elektromedik');
+(3, 'Elektromedik'),
+(4, 'tes');
 
 -- --------------------------------------------------------
 
@@ -112,47 +137,48 @@ INSERT INTO `petugas` (`id_petugas`, `nama_petugas`, `tgl_lahir_petugas`, `jk_pe
 
 CREATE TABLE `sub_kategori` (
   `id_sub_kategori` int(100) NOT NULL,
-  `nama_sub_kategori` varchar(250) NOT NULL
+  `nama_sub_kategori` varchar(250) NOT NULL,
+  `kategori_sub_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `sub_kategori`
 --
 
-INSERT INTO `sub_kategori` (`id_sub_kategori`, `nama_sub_kategori`) VALUES
-(1, 'lampu mati'),
-(2, 'stop kontak rusak'),
-(3, 'telpon rusak'),
-(4, 'air mati'),
-(5, 'pasang telpon'),
-(6, 'sound rusak'),
-(7, 'microfon rusak'),
-(8, 'kipas angin rusak'),
-(9, 'lemari es rusak'),
-(10, 'pintu rusak'),
-(11, 'wastafel rusak'),
-(12, 'printer rusak'),
-(13, 'komputer rusak'),
-(14, 'AC rusak'),
-(15, 'lemari rusak'),
-(16, 'kursi rusak'),
-(17, 'meja rusak'),
-(18, 'pasien monitor error'),
-(19, 'tensi digital error'),
-(20, 'ECG error'),
-(21, 'lampu tindakan error'),
-(22, 'dental unit error'),
-(23, 'film viewer error'),
-(24, 'nebulizer error'),
-(25, 'infant warmer error'),
-(26, 'CPAP error'),
-(27, 'infra red error'),
-(28, 'hepafilter error'),
-(29, 'lampu operasi error'),
-(30, 'USG error'),
-(31, 'X-Ray error'),
-(32, 'termometer error'),
-(33, 'doppler error');
+INSERT INTO `sub_kategori` (`id_sub_kategori`, `nama_sub_kategori`, `kategori_sub_id`) VALUES
+(1, 'lampu mati', 3),
+(2, 'stop kontak rusak', 2),
+(3, 'telpon rusak', 3),
+(4, 'air mati', 4),
+(5, 'pasang telpon', 1),
+(6, 'sound rusak', 1),
+(7, 'microfon rusak', 3),
+(8, 'kipas angin rusak', 0),
+(9, 'lemari es rusak', 0),
+(10, 'pintu rusak', 0),
+(11, 'wastafel rusak', 0),
+(12, 'printer rusak', 0),
+(13, 'komputer rusak', 0),
+(14, 'AC rusak', 0),
+(15, 'lemari rusak', 0),
+(16, 'kursi rusak', 0),
+(17, 'meja rusak', 0),
+(18, 'pasien monitor error', 0),
+(19, 'tensi digital error', 0),
+(20, 'ECG error', 0),
+(21, 'lampu tindakan error', 0),
+(22, 'dental unit error', 0),
+(23, 'film viewer error', 0),
+(24, 'nebulizer error', 0),
+(25, 'infant warmer error', 0),
+(26, 'CPAP error', 0),
+(27, 'infra red error', 0),
+(28, 'hepafilter error', 0),
+(29, 'lampu operasi error', 0),
+(30, 'USG error', 0),
+(31, 'X-Ray error', 0),
+(32, 'termometer error', 0),
+(33, 'doppler error', 0);
 
 -- --------------------------------------------------------
 
@@ -278,13 +304,13 @@ ALTER TABLE `user_login`
 -- AUTO_INCREMENT untuk tabel `db_permintaan`
 --
 ALTER TABLE `db_permintaan`
-  MODIFY `id_db_permintaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_db_permintaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_kategori` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `petugas`
@@ -302,7 +328,7 @@ ALTER TABLE `sub_kategori`
 -- AUTO_INCREMENT untuk tabel `unit_kerja`
 --
 ALTER TABLE `unit_kerja`
-  MODIFY `id_unit` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_unit` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_login`
