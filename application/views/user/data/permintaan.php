@@ -58,12 +58,7 @@
                        </form>
                        
                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-                       <script>
-$('#kategori').on('change', function(){
-  let selectedKategori = $('#kategori').val();
-  $('#selected').text(selectedKategori);
-});
-                       </script>
+
                        <script>
 $("#select1").change(function() {
   if ($(this).data('options') === undefined) {

@@ -30,6 +30,16 @@
                                        <th><?php echo $detail['nama_kategori']; ?></th>
                                    </tr>
                                    <tr>
+                                       <th>Nama Sub Kategori</th>
+                                       <th> : </th>
+                                       <th><?php echo $detail['nama_sub_kategori']; ?></th>
+                                   </tr>
+                                   <tr>
+                                       <th>Keterangan</th>
+                                       <th> : </th>
+                                       <th><?php echo $detail['urgas']; ?></th>
+                                   </tr>
+                                   <tr>
                                        <th>Tanggal Permintaan </th>
                                        <th> : </th>
                                        <th><?php echo format_indo($detail['tgl_permintaan']); ?></th>
@@ -100,11 +110,6 @@
                                             <?php endif; ?>
                                             </tr>
                                    <tr>
-                                   <tr>
-                                       <th>Uraian tugas</th>
-                                       <th> : </th>
-                                       <th><?php echo $detail['urgas']; ?></th>
-                                   </tr>
                                        <th>Status</th>
                                        <th> : </th>
                                        <?php if ($detail['status_db_permintaan'] == 1) : ?>

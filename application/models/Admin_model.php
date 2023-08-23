@@ -108,6 +108,8 @@ class Admin_model extends CI_model
                   ON kategori.id_kategori = db_permintaan.kategori_id
                   LEFT JOIN unit_kerja
                   ON unit_kerja.id_unit = db_permintaan.unit_kerja_id
+                  LEFT JOIN petugas
+                  ON petugas.id_petugas = db_permintaan.petugas_id
                   LEFT JOIN sub_kategori
                   ON sub_kategori.id_sub_kategori = db_permintaan.sub_kategori_id
                   ORDER BY tgl_permintaan DESC
@@ -139,6 +141,10 @@ class Admin_model extends CI_model
                   ON kategori.id_kategori = db_permintaan.kategori_id
                   LEFT JOIN unit_kerja
                   ON unit_kerja.id_unit = db_permintaan.unit_kerja_id
+                  LEFT JOIN petugas
+                  ON petugas.id_petugas = db_permintaan.petugas_id
+                  LEFT JOIN sub_kategori
+                  ON sub_kategori.id_sub_kategori = db_permintaan.sub_kategori_id
                   ORDER BY tgl_permintaan DESC
                   "
                   ;
@@ -155,6 +161,8 @@ class Admin_model extends CI_model
                   ON unit_kerja.id_unit = db_permintaan.unit_kerja_id
                   LEFT JOIN petugas
                   ON petugas.id_petugas = db_permintaan.petugas_id
+                  LEFT JOIN sub_kategori
+                  ON sub_kategori.id_sub_kategori = db_permintaan.sub_kategori_id
                   WHERE db_permintaan.id_db_permintaan = $id_db_permintaan
                   ";
         return $this->db->query($query)->row_array();

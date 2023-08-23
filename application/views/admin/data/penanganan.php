@@ -14,8 +14,12 @@
                                <thead>
                                    <th>#</th>
                                    <th>Tanggal Pengajuan</th>
-                                   <th>Kategori Permintaan</th>
+                                   <th>Jam Pengajuan</th>
                                    <th>Unit Kerja </th>
+                                   <th>Kategori Permintaan</th>
+                                   <th>Sub Kategori Permintaan</th>
+                                   <th>Keterangan</th>
+                                   <th>Petugas</th>
                                    <th>Status</th>
                                    <th>Opsi</th>
                                </thead>
@@ -27,8 +31,16 @@
                                        <tr>
                                            <td><?php echo $i++; ?></td>
                                            <td><?php echo format_indo($lu['tgl_permintaan']); ?></td>
-                                           <td><?php echo $lu['nama_kategori']; ?></td>
+                                           <td><?php echo $lu['jam_permintaan']; ?></td>
                                            <td><?php echo $lu['nama_unit']; ?></td>
+                                           <td><?php echo $lu['nama_kategori']; ?></td>
+                                           <td><?php echo $lu['nama_sub_kategori']; ?></td>
+                                           <td><?php echo $lu['urgas']; ?></td>
+                                           <?php if ($lu['nama_petugas'] == "") : ?>
+                                            <td> <?php echo "";?></td>
+                                            <?php else : ?>
+                                            <td><?php echo $lu['nama_petugas']; ?></td>
+                                            <?php endif; ?>
                                            <td><button class="btn btn-warning btn-sm btn-block text-dark">PENGAJUAN</button></td>
                                             <td>
                                             <a href="<?php echo base_url('admin/info_permintaan/' . $lu['id_db_permintaan']); ?>" class="tombol-edit btn btn-info "><i class="fas fa-edit"></i></a>
@@ -36,8 +48,16 @@
                                            <?php elseif ($lu['status_db_permintaan'] == 2) : ?>
                                            <td><?php echo $i++; ?></td>
                                            <td><?php echo format_indo($lu['tgl_permintaan']); ?></td>
-                                           <td><?php echo $lu['nama_kategori']; ?></td>
+                                           <td><?php echo $lu['jam_permintaan']; ?></td>
                                            <td><?php echo $lu['nama_unit']; ?></td>
+                                           <td><?php echo $lu['nama_kategori']; ?></td>
+                                           <td><?php echo $lu['nama_sub_kategori']; ?></td>
+                                           <td><?php echo $lu['urgas']; ?></td>
+                                           <?php if ($lu['nama_petugas'] == "") : ?>
+                                            <td> <?php echo "";?></td>
+                                            <?php else : ?>
+                                            <td><?php echo $lu['nama_petugas']; ?></td>
+                                            <?php endif; ?>
                                            <td class="text-center text-info font-weight-bolder">Proses</td>
                                            <td>
                                            <a href="<?php echo base_url('admin/info_permintaan/' . $lu['id_db_permintaan']); ?>" class="tombol-edit btn btn-info "><i class="fas fa-edit"></i></a>
@@ -46,8 +66,16 @@
                                           <?php elseif ($lu['status_db_permintaan'] == 7) : ?>
                                            <td><?php echo $i++; ?></td>
                                            <td><?php echo format_indo($lu['tgl_permintaan']); ?></td>
-                                           <td><?php echo $lu['nama_kategori']; ?></td>
+                                           <td><?php echo $lu['jam_permintaan']; ?></td>
                                            <td><?php echo $lu['nama_unit']; ?></td>
+                                           <td><?php echo $lu['nama_kategori']; ?></td>
+                                           <td><?php echo $lu['nama_sub_kategori']; ?></td>
+                                           <td><?php echo $lu['urgas']; ?></td>
+                                           <?php if ($lu['nama_petugas'] == "") : ?>
+                                            <td> <?php echo "";?></td>
+                                            <?php else : ?>
+                                            <td><?php echo $lu['nama_petugas']; ?></td>
+                                            <?php endif; ?>
                                            <td class="text-center text-info font-weight-bolder">Menunggu Verifikasi</td>
                                            <td>
                                            <a href="<?php echo base_url('admin/info_permintaan/' . $lu['id_db_permintaan']); ?>" class="tombol-edit btn btn-info "><i class="fas fa-edit"></i></a>

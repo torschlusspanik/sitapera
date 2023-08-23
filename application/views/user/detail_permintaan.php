@@ -18,6 +18,16 @@
                                        <th><?php echo $detail['nama_kategori']; ?></th>
                                    </tr>
                                    <tr>
+                                       <th>Nama Sub Kategori</th>
+                                       <th> : </th>
+                                       <th><?php echo $detail['nama_sub_kategori']; ?></th>
+                                   </tr>
+                                   <tr>
+                                       <th>Keterangan</th>
+                                       <th> : </th>
+                                       <th><?php echo $detail['urgas']; ?></th>
+                                   </tr>
+                                   <tr>
                                        <th>Tanggal Permintaan</th>
                                        <th> : </th>
                                        <th><?php echo format_indo($detail['tgl_permintaan']); ?></th>
@@ -38,13 +48,6 @@
                                             <?php endif; ?>
                                             </tr>
                                    <tr>
-                                   <?php if ($detail['urgas'] == "") : ?>
-                                            <td style="visibility:hidden;">
-                                            <?php else : ?>
-                                            <th>Keterangan Tambahan</th>
-                                            <th> : </th>
-                                            <th><?php echo $detail['urgas']; ?></th>
-                                            <?php endif; ?>
                                             </tr>
                                             <?php if ($detail['tgl_mulai'] == "0000-00-00") : ?>
                                             <td style="visibility:hidden;">
@@ -82,11 +85,6 @@
                                        <th>Nama Petugas</th>
                                        <th> : </th>
                                        <th><?php echo $detail['nama_petugas']; ?></th>
-                                   </tr>
-                                   <tr>
-                                       <th>Uraian tugas</th>
-                                       <th> : </th>
-                                       <th><?php echo $detail['urgas']; ?></th>
                                    </tr>
                                    <tr>
                                        <th>Status</th>
