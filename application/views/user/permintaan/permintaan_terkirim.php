@@ -47,8 +47,8 @@
                                             <?php else : ?>
                                             <td><?php echo $lu['nama_petugas']; ?></td>
                                             <?php endif; ?>
-                                           
                                            <td class="text-center text-warning font-weight-bolder">Menunggu</td>
+                                           <td><a href="<?php echo base_url('user/del_permintaan/' . $lu['id_db_permintaan']); ?>" class="tombol-hapus btn btn-danger btn-block btn-sm"><i class="fas fa-trash-alt"></i> Hapus</a></td>
 
                                            <?php elseif ($lu['status_db_permintaan'] == 2) : ?>
                                            <td><?php echo $i++; ?></td>
@@ -63,6 +63,7 @@
                                             <td><?php echo $lu['nama_petugas']; ?></td>
                                             <?php endif; ?>
                                            <td class="text-center text-info font-weight-bolder">Proses</td>
+                                           <td><a href="<?php echo base_url('user/detail_permintaan/' . $lu['id_db_permintaan']); ?>" class="btn btn-dark btn-sm btn-block">Detail</a></td>
 
                                            <?php elseif ($lu['status_db_permintaan'] == 7) : ?>
                                            <td><?php echo $i++; ?></td>
@@ -77,18 +78,10 @@
                                             <td><?php echo $lu['nama_petugas']; ?></td>
                                             <?php endif; ?>
                                            <td class="text-center text-info font-weight-bolder">Menunggu Verifikasi</td>
+                                           <td><a href="<?php echo base_url('user/detail_permintaan/' . $lu['id_db_permintaan']); ?>" class="btn btn-dark btn-sm btn-block">Detail</a></td>
 
                                            <?php else : ?>
                                                
-                                           <?php endif; ?>
-                                           <?php if ($lu['status_db_permintaan'] == 1) : ?>
-                                               <td><a href="<?php echo base_url('user/del_permintaan/' . $lu['id_db_permintaan']); ?>" class="tombol-hapus btn btn-danger btn-block btn-sm"><i class="fas fa-trash-alt"></i> Hapus</a></td>
-                                           <?php elseif ($lu['status_db_permintaan'] == 0) : ?>
-            
-                                            <?php elseif ($lu['status_db_permintaan'] == 2) : ?>
-                                                <td><a href="<?php echo base_url('user/detail_permintaan/' . $lu['id_db_permintaan']); ?>" class="btn btn-dark btn-sm btn-block">Detail</a></td>
-                                                <?php elseif ($lu['status_db_permintaan'] == 7) : ?>
-                                                <td><a href="<?php echo base_url('user/detail_permintaan/' . $lu['id_db_permintaan']); ?>" class="btn btn-dark btn-sm btn-block">Detail</a></td>
                                            <?php endif; ?>
 
                                        </tr>

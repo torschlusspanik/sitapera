@@ -127,7 +127,6 @@ class User extends CI_Controller
         $data['judul'] = 'Si TAPERA | Sistem Informasi Permintaan Perbaikan Alat dan Sarana Prasarana';
             $data['title'] = 'Daftar Permintaan Terkirim ';
             $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
-            $data['list_kategori'] = $this->db->get_where('kategori', ['id_kategori'])->result_array();
             $user_id = $this->session->userdata('id_user');
             $data['permintaan_saya'] = $this->user->getPermintaan($user_id);
 

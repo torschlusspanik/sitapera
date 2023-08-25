@@ -521,7 +521,7 @@ class Admin extends CI_Controller
     public function info_history($id_db_permintaan)
     {
         $data['judul'] = 'Si TAPERA | Sistem Informasi Permintaan Perbaikan Alat dan Sarana Prasarana';
-        $data['title'] = 'Detail Penanganan Permintaan';
+        $data['title'] = 'Detail History Penanganan Permintaan';
         $data['user'] = $this->db->get_where('user_login', ['username' => $this->session->userdata('username')])->row_array();
         $data['detail'] = $this->admin->getInfoPermintaan($id_db_permintaan);
         $data['petugas'] = $this->db->get_where('petugas', ['status_petugas' => 1])->result_array();

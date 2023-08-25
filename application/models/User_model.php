@@ -17,11 +17,10 @@ class User_model extends CI_model
         $query = "SELECT *
                   FROM db_permintaan JOIN kategori
                   ON db_permintaan.kategori_id = kategori.id_kategori
-                  JOIN petugas
-                  ON petugas.id_petugas = db_permintaan.petugas_id
                   JOIN sub_kategori
-                  ON sub_kategori.id_sub_kategori = db_permintaan.sub_kategori_id
-
+                  ON db_permintaan.sub_kategori_id = sub_kategori.id_sub_kategori
+                  LEFT JOIN petugas
+                  ON db_permintaan.petugas_id = petugas.id_petugas
                   WHERE db_permintaan.sess_id = '$user_id'
                   ORDER BY id_db_permintaan DESC
                   ";
