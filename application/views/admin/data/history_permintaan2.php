@@ -20,10 +20,14 @@
                        <div class="table-responsive">
                            <table class="table table-bordered" id="table-id" style="font-size:13px;">
                                <thead>
-                                   <th>#</th>
+                               <th>#</th>
                                    <th>Tanggal Permintaan</th>
-                                   <th>Kategori Permintaan</th>
+                                   <th>Jam Pengajuan</th>
                                    <th>Nama Unit</th>
+                                   <th>Kategori Permintaan</th>
+                                   <th>Sub Kategori Permintaan</th>
+                                   <th>Keterangan</th>
+                                   <th>Petugas</th>
                                    <th>Tanggal Selesai</th>
                                    <th>Status</th>
                                    <th>Opsi</th>
@@ -36,8 +40,16 @@
                                        <tr>
                                            <td><?php echo $i++; ?></td>
                                            <td><?php echo format_indo($lu['tgl_permintaan']); ?></td>
-                                           <td><?php echo $lu['nama_kategori']; ?></td>
+                                           <td><?php echo $lu['jam_permintaan']; ?></td>
                                            <td><?php echo $lu['nama_unit']; ?></td>
+                                           <td><?php echo $lu['nama_kategori']; ?></td>
+                                           <td><?php echo $lu['nama_sub_kategori']; ?></td>
+                                           <td><?php echo $lu['urgas']; ?></td>
+                                           <?php if ($lu['nama_petugas'] == "") : ?>
+                                            <td> <?php echo "";?></td>
+                                            <?php else : ?>
+                                            <td><?php echo $lu['nama_petugas']; ?></td>
+                                            <?php endif; ?>
                                            <?php if ($lu['tgl_selesai'] == "0000-00-00") : ?>
                                             <td><?php echo "Proses"; ?></td>
                                             <?php else : ?>  
